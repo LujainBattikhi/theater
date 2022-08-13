@@ -1,0 +1,28 @@
+{% extends 'layout/layout-without-sidebar.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+    <section class="error-page p-4" style="">
+        <div class="dark-blue text-center container px-lg-0">
+            <div class="error-side">
+                <div class="text-red side-first">
+                    <i id="icon" class="fa icon-foo fa-4x">&#xf21e;</i>
+                </div>
+                <br>
+                <hr>
+                <div class="darkest-blue side-last px-3 text-center">
+                    <div class="error-txt-container d-flex flex-column">
+                        <h3 class="error-title">{% trans 'UNAUTHORIZED ERROR' %}</h3>
+                        <h2 class="error-subtitle">
+                            {% trans 'The requested resource requires an authentication.' %}</h2>
+                        <a href="{% url 'common:home' %}" class="p-2 btn mt-2 badge-dark-blue">{% trans 'Home' %}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block js %}
+    <script type="text/javascript" src="{% static "js/http.js" %}"></script>
+{% endblock %}

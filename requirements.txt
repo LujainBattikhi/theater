@@ -1,0 +1,7 @@
+Django==3.0.0
+django-crispy-forms==1.10.0
+django-compressor
+django-email-verification
+csscompressor
+django-modeltranslation
+django-autoslug

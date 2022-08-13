@@ -1,0 +1,18 @@
+{% extends "layout/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block base_content %}
+    {% include "layout/_header.html" %}
+
+
+    <div class="main-wrapper">
+        {% include "layout/_messages.html" %}
+        <div class="main-content-wrapper">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+    {% include "layout/_footer.html" %}
+
+{% endblock %}

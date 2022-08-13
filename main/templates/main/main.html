@@ -1,0 +1,26 @@
+{% extends 'layout/layout.html' %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% load static %}
+{% block og_image %} {% static 'images/logo-medteb.png' %}  {% endblock %}
+{% block site_title %} {% trans "Home" %} {% endblock %}
+{% block site_og_title %}{% trans "Home" %} {% endblock %}
+{% block site_og_description %} {% trans "Home" %} {% endblock %}
+{% block site_description %}{% trans "Site Home Description" %}{% endblock %}
+{% block canonical %}{{ request.build_absolute_uri }}{% endblock %}
+{% block keywords %}{% trans "Home" %}{% endblock %}
+{% block reading_time %}{{ object.reading_time|default:2 }}{% endblock %}
+
+
+{% block content %}
+    <div class="container-fluid mt-5">
+        <figure class="text-center">
+            <blockquote class="blockquote">
+                <p>A well-known quote, contained in a blockquote element.</p>
+            </blockquote>
+            <figcaption class="blockquote-footer">
+                Someone famous in <cite title="Source Title">Source Title</cite>
+            </figcaption>
+        </figure>
+    </div>
+{% endblock %}

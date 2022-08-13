@@ -1,0 +1,105 @@
+body {
+    background-color: #FFF;
+    font-family: "Cairo", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 18px;
+    color: #777;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    color: #aa0a5f;
+}
+
+a, a:hover, a:focus {
+    text-decoration: none;
+    outline: 0;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+    color: #333;
+    margin: 0;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+h5 {
+    font-size: 16px;
+}
+
+h6 {
+    font-size: 14px;
+}
+
+strong {
+    letter-spacing: 1px;
+}
+
+code {
+    background-color: #ddd;
+    border-radius: 3px;
+    color: #000;
+    font-size: 85%;
+    margin: 0;
+    padding: 5px 10px;
+}
+
+code a {
+    color: #333;
+}
+
+code a:hover {
+    text-decoration: underline;
+}
+
+section p {
+    line-height: 28px;
+}
+
+
+.twitter-feed{
+    line-height: 25px;
+    margin-bottom: 10px;
+}
+
+.twitter-feed {
+    border: 1px solid #ddd;
+    box-shadow: 2px 3px 3px #ddd;
+    height: auto;
+    margin-top: 10px;
+    max-width: 100%;
+}
+
+
+footer {
+    position: fixed;
+    background: #ededed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+
+
+
+
+
+
+
+
