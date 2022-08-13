@@ -1,0 +1,28 @@
+{% extends 'layout/layout.html' %}
+{% load crispy_forms_tags static i18n main %}
+{% block og_image %} {% static 'images/logo-medteb.png' %}  {% endblock %}
+{% block site_title %} {% trans "Home" %} {% endblock %}
+{% block site_og_title %}{% trans "Home" %} {% endblock %}
+{% block site_og_description %} {% trans "Home" %} {% endblock %}
+{% block site_description %}{% trans "Site Home Description" %}{% endblock %}
+{% block canonical %}{{ request.build_absolute_uri }}{% endblock %}
+{% block keywords %}{% trans "Home" %}{% endblock %}
+{% block reading_time %}{{ object.reading_time|default:2 }}{% endblock %}
+
+
+{% block content %}
+    <!--==========================
+      Production Section
+    ============================-->
+    <h4 class="p-3 text-center fw-bolder card-title">{{ object|get_translation_data:'name' }}</h4>
+
+    <div class="m-3 align-items-center text-center p-3 card">
+        <img src="{{ object.image.url }}" width="300" height="300" class="img-thumbnail" alt="...">
+        <div class="card-body">
+            <h5 class="p-3 card-text">{{ object|get_translation_data:'job_title' }}</h5>
+            <hr>
+            <h5 class="p-3 card-text">{{ object|get_translation_data:'bio' }}</h5>
+        </div>
+    </div>
+
+{% endblock %}

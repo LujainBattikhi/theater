@@ -26,11 +26,13 @@ SECRET_KEY = 'django-insecure-vboxl*4&%7*)c!p9al&a2cfa&q+9#n$fwvu=#&_9%e+b&mu#^j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
 INSTALLED_APPS = [
+    'grappelli',
+    'filebrowser',
     'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,6 +43,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'compressor',
     'main',
+    'tinymce',
 
 ]
 
@@ -107,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
@@ -124,6 +127,12 @@ LANGUAGES = (
     ('en', _('English')),
     ('ar', _('Arabic')),
 )
+
+MULTILINGUAL_LANGUAGES = (
+    "en",
+    "ar",
+)
+
 MODELTRANSLATION_LANGUAGES = tuple([language[0] for language in LANGUAGES])
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
 
@@ -136,6 +145,10 @@ STATICFILES_FINDERS = (
     # other finders..
     'compressor.finders.CompressorFinder',
 )
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 

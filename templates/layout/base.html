@@ -38,9 +38,12 @@
     <link rel="shortcut icon" href="{% static 'images/logo.png' %}" type="image/x-icon">
 
     {% compress css %}
-        <link rel="stylesheet" href="{% static 'vendors/fonts/Cario/font.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'vendor/css/bootstrap.min.css' %}">
         <link rel="stylesheet" href="{% static 'css/main.css' %}">
+        <link href="{% static 'vendor/animate/animate.min.css' %}" rel="stylesheet">
 
         {% block app_css %}
         {% endblock %}

@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
+from tinymce import HTMLField
 
 
 # Create your models here.
@@ -73,7 +74,7 @@ class SubCategory(BaseModel):
     )
 
     def get_absolute_url(self):
-        return reverse("sub_category_details", kwargs={"slug": self.slug})
+        return reverse("main:sub_category_details", kwargs={"slug": self.slug})
 
     @staticmethod
     def translatable_fields_list():
@@ -97,13 +98,106 @@ class Production(BaseModel):
         blank=False, null=False,
         verbose_name=_('Synopsis'),
     )
+    sub_category = models.ForeignKey(
+        SubCategory,
+        null=False,
+        blank=False,
+        on_delete=models.PROTECT,
+        verbose_name=_("Sub Category"),
+        related_name='productions'
+    )
     link = models.URLField(
         verbose_name=_('Link'),
     )
+    publish_date = models.DateField(
+        blank=True, null=True, verbose_name=_('Publish At'), db_index=True
+    )
+    image = models.ImageField(
+        null=False,
+        blank=False,
+        verbose_name=_("Cover Photo"),
+        upload_to='covers'
+    )
+
+    slug = AutoSlugField(
+        populate_from='title',
+        unique_with=['title', 'created_at'],
+    )
+
+    def get_absolute_url(self):
+        return reverse("main:production_details", kwargs={"slug": self.slug})
 
     @staticmethod
     def translatable_fields_list():
         return 'title', 'synopsis',
+
+    def __str__(self):
+        return self.title
+
+
+class TeamMember(BaseModel):
+    """
+    Production model
+    """
+    name = models.CharField(
+        max_length=150,
+        blank=False, null=False,
+        verbose_name=_('Full Name'),
+    )
+    job_title = models.CharField(
+        max_length=150,
+        blank=False, null=False,
+        verbose_name=_('Job Title'),
+    )
+    image = models.ImageField(
+        null=False,
+        blank=False,
+        verbose_name=_("Personal Photo"),
+        upload_to='covers'
+    )
+    bio = models.TextField(
+        max_length=5000,
+        blank=True, null=False,
+        verbose_name=_('Bio'),
+    )
+    slug = AutoSlugField(
+        populate_from='name',
+        unique_with=['name', 'created_at'],
+    )
+
+    def get_absolute_url(self):
+        return reverse("main:team_member", kwargs={"slug": self.slug})
+
+    @staticmethod
+    def translatable_fields_list():
+        return 'name', 'job_title', 'bio',
+
+    def __str__(self):
+        return self.name
+
+
+class HeadLine(BaseModel):
+    """
+    HeadLine model
+    """
+    title = models.CharField(
+        max_length=150,
+        blank=False, null=False,
+        verbose_name=_('Title'),
+    )
+    content = HTMLField('Content')
+
+    slug = AutoSlugField(
+        populate_from='title',
+        unique_with=['title', 'created_at'],
+    )
+
+    def get_absolute_url(self):
+        return reverse("main:HeadLine", kwargs={"slug": self.slug})
+
+    @staticmethod
+    def translatable_fields_list():
+        return 'title', 'content',
 
     def __str__(self):
         return self.title

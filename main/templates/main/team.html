@@ -1,0 +1,48 @@
+{% extends 'layout/layout.html' %}
+{% load crispy_forms_tags static i18n main %}
+{% block og_image %} {% static 'images/logo-medteb.png' %}  {% endblock %}
+{% block site_title %} {% trans "Home" %} {% endblock %}
+{% block site_og_title %}{% trans "Home" %} {% endblock %}
+{% block site_og_description %} {% trans "Home" %} {% endblock %}
+{% block site_description %}{% trans "Site Home Description" %}{% endblock %}
+{% block canonical %}{{ request.build_absolute_uri }}{% endblock %}
+{% block keywords %}{% trans "Home" %}{% endblock %}
+{% block reading_time %}{{ object.reading_time|default:2 }}{% endblock %}
+
+
+{% block content %}
+    <!--==========================
+      Production Section
+    ============================-->
+
+    <header class="section-header">
+        <h3>{% trans 'Team' %}</h3>
+    </header>
+    <div class="card flex-row d-flex flex-wrap justify-content-center align-items-center">
+
+        {% for team_member in object_list %}
+            <a href="{{ team_member.get_absolute_url }}" class=" team-member">
+                <div class="text-center m-3">
+                    <img width="200" height="200" class="rounded-circle" src="{{ team_member.image.url }}">
+                    <h5 class="fw-bolder text-dark-red my-2">{{ team_member.name }}</h5>
+                    <h5 class="fw-bold my-2">{{ team_member.job_title }}</h5>
+                </div>
+            </a>
+            <a href="{{ team_member.get_absolute_url }}" class=" team-member">
+                <div class="text-center m-3">
+                    <img width="200" height="200" class="rounded-circle" src="{{ team_member.image.url }}">
+                    <h5 class="fw-bolder text-dark-red my-2">{{ team_member.name }}</h5>
+                    <h5 class="fw-bold my-2">{{ team_member.job_title }}</h5>
+                </div>
+            </a>
+            <a href="{{ team_member.get_absolute_url }}" class=" team-member">
+                <div class="text-center m-3">
+                    <img width="200" height="200" class="rounded-circle" src="{{ team_member.image.url }}">
+                    <h5 class="fw-bolder text-dark-red my-2">{{ team_member.name }}</h5>
+                    <h5 class="fw-bold my-2">{{ team_member.job_title }}</h5>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+
+{% endblock %}

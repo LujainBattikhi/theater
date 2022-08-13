@@ -5,3 +5,6 @@ django-email-verification
 csscompressor
 django-modeltranslation
 django-autoslug
+Pillow
+django-tinymce4-lite
+django-filebrowser

@@ -1,7 +1,5 @@
 {% extends 'layout/layout.html' %}
-{% load crispy_forms_tags %}
-{% load i18n %}
-{% load static %}
+{% load crispy_forms_tags static i18n main %}
 {% block og_image %} {% static 'images/logo-medteb.png' %}  {% endblock %}
 {% block site_title %} {% trans "Home" %} {% endblock %}
 {% block site_og_title %}{% trans "Home" %} {% endblock %}
@@ -13,7 +11,34 @@
 
 
 {% block content %}
-    <div class="container-fluid mt-5">
-      
-    </div>
+    <!--==========================
+      Productions Section
+    ============================-->
+    <section id="productions" class="section-bg">
+        <div class="container">
+
+            <header class="text-capitalize section-header">
+                <h3>{{ object|get_translation_data:'name' }}</h3>
+            </header>
+
+            <div class="row justify-content-center">
+                {% for production in object.productions.all %}
+                    <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+                        <div class="box">
+                            <div class="my-4">
+                                <img width="300" height="300" class="img-thumbnail img-fluid"
+                                     src="{{ production.image.url }}"/>
+                            </div>
+                            <h4 class="title"><a href="{{ production.get_absolute_url }}">{{ production|get_translation_data:'title' }}</a></h4>
+                            <div class="box-body">
+                                <p class=" description">{{ production|get_translation_data:'synopsis'|truncatechars:100 }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </section><!-- #services -->
+
 {% endblock %}
