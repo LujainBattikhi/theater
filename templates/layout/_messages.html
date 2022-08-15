@@ -1,10 +1,10 @@
-{% if messages %}
-    {% for message in messages %}
-        <div dir="rtl" class="alert {{ message.tags }} text-right alert-dismissible main-alert {% if request.resolver_match.app_name %}home{% endif %} fade show">
-             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-             </button>
-            <strong>{{ message }}</strong>
-        </div>
-    {% endfor %}
-{% endif %}
+<div id="messages">
+    {% if messages %}
+        {% for message in messages %}
+            <div
+                 class="alert {{ message.tags }} text-center alert-dismissible main-alert fade fadeInUp animate__fadeOut show">
+                <strong>{{ message }}</strong>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>

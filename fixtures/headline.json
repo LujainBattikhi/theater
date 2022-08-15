@@ -1,0 +1,66 @@
+[
+{
+    "model": "main.headline",
+    "pk": 2,
+    "fields": {
+        "created_at": "2022-08-13T23:18:43.779Z",
+        "updated_at": "2022-08-13T23:26:55.127Z",
+        "title": "Mission and vision",
+        "title_en": "Mission and vision",
+        "title_ar": "Mission and vision",
+        "content": "<blockquote>\r\n<p><span style=\"color:#f1c40f\"><img alt=\"\" src=\"/media/uploads/2022/08/13/260x404_yMaG9hh.jpeg\" style=\"height:404px; width:260px\" />VISION<br />\r\n&nbsp;&nbsp; &nbsp;<br />\r\n<strong>AL-HARAH</strong>&nbsp;&nbsp;Theatre is &nbsp;committed to principles of plurality and multiculturalism. &nbsp;Through producing and promoting theater arts in Palestine, we are partaking in building and maintaining a civil society that emphasizes human rights, democracy and freedom of expression as key components for a dynamic society.&nbsp;</span></p>\r\n</blockquote>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<ul>\r\n\t<li style=\"text-align:center\"><span style=\"color:#f1c40f\">MISSION</span></li>\r\n\t<li><span style=\"color:#f1c40f\"><strong>AL-HARAH</strong>&nbsp;aims to bring compelling stories , in one of the most uncensored spaces, to audiences throughout Palestine, the Arab World and beyond, through producing and distributing theater performances on high artistic levels, and our educational training programs which create new theatre practitioners who believe that theatre has a strong potential to implement positive change.&nbsp;</span></li>\r\n</ul>",
+        "content_en": "<blockquote>\r\n<p><span style=\"color:#f1c40f\"><img alt=\"\" src=\"/media/uploads/2022/08/13/260x404_yMaG9hh.jpeg\" style=\"height:404px; width:260px\" />VISION<br />\r\n&nbsp;&nbsp; &nbsp;<br />\r\n<strong>AL-HARAH</strong>&nbsp;&nbsp;Theatre is &nbsp;committed to principles of plurality and multiculturalism. &nbsp;Through producing and promoting theater arts in Palestine, we are partaking in building and maintaining a civil society that emphasizes human rights, democracy and freedom of expression as key components for a dynamic society.&nbsp;</span></p>\r\n</blockquote>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<ul>\r\n\t<li style=\"text-align:center\"><span style=\"color:#f1c40f\">MISSION</span></li>\r\n\t<li><span style=\"color:#f1c40f\"><strong>AL-HARAH</strong>&nbsp;aims to bring compelling stories , in one of the most uncensored spaces, to audiences throughout Palestine, the Arab World and beyond, through producing and distributing theater performances on high artistic levels, and our educational training programs which create new theatre practitioners who believe that theatre has a strong potential to implement positive change.&nbsp;</span></li>\r\n</ul>",
+        "content_ar": "<blockquote>\r\n<p>VISION<br />\r\n<span style=\"color:#8e44ad\">&nbsp;&nbsp; &nbsp;<br />\r\n<strong>AL-HARAH</strong>&nbsp;&nbsp;Theatre is &nbsp;committed to principles of plurality and multiculturalism. &nbsp;Through producing and promoting theater arts in Palestine, we are partaking in building and maintaining a civil society that emphasizes human rights, democracy and freedom of expression as key components for a dynamic society.&nbsp;</span></p>\r\n</blockquote>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p style=\"text-align:center\"><span style=\"color:#8e44ad\">MISSION</span></p>\r\n\r\n<p><span style=\"color:#8e44ad\"><strong>AL-HARAH</strong>&nbsp;aims to bring compelling stories , in one of the most uncensored spaces, to audiences throughout Palestine, the Arab World and beyond, through producing and distributing theater performances on high artistic levels, and our educational training programs which create new theatre practitioners who believe that theatre has a strong potential to implement positive change.&nbsp;</span></p>",
+        "slug": "Mission-and-vision",
+        "is_active": true
+    }
+},
+{
+    "model": "main.headline",
+    "pk": 3,
+    "fields": {
+        "created_at": "2022-08-15T01:24:50.617Z",
+        "updated_at": "2022-08-15T01:24:50.617Z",
+        "title": "Goals & Objectives",
+        "title_en": "Goals & Objectives",
+        "title_ar": "\u0627\u0644\u0645\u0648\u0636\u0648\u0639\u0627\u062a \u0627\u0644\u0645\u0633\u062a\u0647\u062f\u0641\u0629",
+        "content": "<p>Goals &amp; Objectives</p>",
+        "content_en": "<p>Goals &amp; Objectives</p>",
+        "content_ar": "<p>\u0627\u0644\u0645\u0648\u0636\u0648\u0639\u0627\u062a \u0627\u0644\u0645\u0633\u062a\u0647\u062f\u0641\u0629</p>",
+        "slug": "Goals-&-Objectives",
+        "is_active": true
+    }
+},
+{
+    "model": "main.headline",
+    "pk": 4,
+    "fields": {
+        "created_at": "2022-08-15T01:25:13.426Z",
+        "updated_at": "2022-08-15T01:25:13.426Z",
+        "title": "Scope of Work",
+        "title_en": "Scope of Work",
+        "title_ar": "\u0645\u062c\u0627\u0644 \u0627\u0644\u0639\u0645\u0644",
+        "content": "<p>Scope of Work</p>",
+        "content_en": "<p>Scope of Work</p>",
+        "content_ar": "<p>\u0645\u062c\u0627\u0644 \u0627\u0644\u0639\u0645\u0644</p>",
+        "slug": "Scope-of-Work",
+        "is_active": true
+    }
+},
+{
+    "model": "main.headline",
+    "pk": 5,
+    "fields": {
+        "created_at": "2022-08-15T01:25:41.631Z",
+        "updated_at": "2022-08-15T12:41:15.014Z",
+        "title": "Awards",
+        "title_en": "Awards",
+        "title_ar": "\u0627\u0644\u062c\u0648\u0627\u0626\u0632",
+        "content": "<p>Awards</p>",
+        "content_en": "<p>Awards</p>",
+        "content_ar": "<p>\u0627\u0644\u062c\u0648\u0627\u0626\u0632\u0627\u0644\u062c\u0648\u0627\u0626\u0632</p>",
+        "slug": "Awards",
+        "is_active": true
+    }
+}
+]

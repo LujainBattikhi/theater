@@ -1,0 +1,40 @@
+{% extends 'layout/layout.html' %}
+{% load crispy_forms_tags static i18n main %}
+{% block og_image %} {% static 'images/logo-medteb.png' %}  {% endblock %}
+{% block site_title %} {% trans "Home" %} {% endblock %}
+{% block site_og_title %}{% trans "Home" %} {% endblock %}
+{% block site_og_description %} {% trans "Home" %} {% endblock %}
+{% block site_description %}{% trans "Site Home Description" %}{% endblock %}
+{% block canonical %}{{ request.build_absolute_uri }}{% endblock %}
+{% block keywords %}{% trans "Home" %}{% endblock %}
+{% block reading_time %}{{ object.reading_time|default:2 }}{% endblock %}
+
+
+{% block content %}
+    <!--==========================
+      Team Section
+    ============================-->
+
+    <header class="section-header">
+        <h3>{% trans 'Inad Team' %}</h3>
+    </header>
+    <div class="row flex-row card align-items-center justify-content-center">
+        {% for team_member in object_list %}
+            <div class="wow fadeIn text-center col-lg-4">
+                <a href="{{ team_member.get_absolute_url }}" class="">
+                    <div class="text-center m-3">
+                        <img class="bd-placeholder-img rounded-circle" width="140" height="140"
+                             src="{{ team_member.image.url }}">
+                        <h5 class="fw-bolder text-dark-red my-2">{{ team_member.name }}</h5>
+                        <h5 class="fw-bold my-2">{{ team_member.job_title }}</h5>
+                    </div>
+                </a>
+            </div><!-- /.col-lg-4 -->
+        {% endfor %}
+
+    </div>
+
+    {% if object_list %}
+        {% pagination %}
+    {% endif %}
+{% endblock %}

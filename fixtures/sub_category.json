@@ -1,0 +1,100 @@
+[
+{
+    "model": "main.subcategory",
+    "pk": 1,
+    "fields": {
+        "created_at": "2022-08-13T11:17:01.564Z",
+        "updated_at": "2022-08-13T12:00:43.068Z",
+        "name": "The theatre for Adults",
+        "name_en": "The theatre for Adults",
+        "name_ar": "\u0645\u0633\u0631\u062d \u0627\u0644\u0643\u0628\u0627\u0631",
+        "category": 1,
+        "is_active": true,
+        "slug": "1"
+    }
+},
+{
+    "model": "main.subcategory",
+    "pk": 2,
+    "fields": {
+        "created_at": "2022-08-15T01:21:22.199Z",
+        "updated_at": "2022-08-15T01:21:22.199Z",
+        "name": "Children's Theater",
+        "name_en": "Children's Theater",
+        "name_ar": "\u0645\u0633\u0631\u062d \u0627\u0637\u0641\u0627\u0644",
+        "category": 1,
+        "is_active": true,
+        "slug": "Children's-Theater"
+    }
+},
+{
+    "model": "main.subcategory",
+    "pk": 3,
+    "fields": {
+        "created_at": "2022-08-15T01:21:40.379Z",
+        "updated_at": "2022-08-15T01:21:40.379Z",
+        "name": "Community Theater",
+        "name_en": "Community Theater",
+        "name_ar": "\u0645\u0633\u0631\u062d \u0627\u0644\u0645\u062c\u062a\u0645\u0639",
+        "category": 1,
+        "is_active": true,
+        "slug": "Community-Theater"
+    }
+},
+{
+    "model": "main.subcategory",
+    "pk": 4,
+    "fields": {
+        "created_at": "2022-08-15T01:22:02.833Z",
+        "updated_at": "2022-08-15T01:22:02.833Z",
+        "name": "Inclusive Theater",
+        "name_en": "Inclusive Theater",
+        "name_ar": "\u0645\u0633\u0631\u062d \u0634\u0627\u0645\u0644",
+        "category": 1,
+        "is_active": true,
+        "slug": "Inclusive-Theater"
+    }
+},
+{
+    "model": "main.subcategory",
+    "pk": 5,
+    "fields": {
+        "created_at": "2022-08-15T01:22:18.261Z",
+        "updated_at": "2022-08-15T01:22:18.261Z",
+        "name": "Drama & Theater",
+        "name_en": "Drama & Theater",
+        "name_ar": "\u0627\u0644\u062f\u0631\u0627\u0645\u0627 \u0648\u0627\u0644\u0645\u0633\u0631\u062d",
+        "category": 1,
+        "is_active": true,
+        "slug": "Drama-&-Theater"
+    }
+},
+{
+    "model": "main.subcategory",
+    "pk": 6,
+    "fields": {
+        "created_at": "2022-08-15T01:23:29.364Z",
+        "updated_at": "2022-08-15T01:23:29.364Z",
+        "name": "Audio & Visual",
+        "name_en": "Audio & Visual",
+        "name_ar": "\u0633\u0645\u0639\u064a \u0648\u0645\u0631\u0626\u064a",
+        "category": 2,
+        "is_active": true,
+        "slug": "Audio-&-Visual"
+    }
+},
+{
+    "model": "main.subcategory",
+    "pk": 7,
+    "fields": {
+        "created_at": "2022-08-15T01:23:53.805Z",
+        "updated_at": "2022-08-15T01:23:53.805Z",
+        "name": "Festivals",
+        "name_en": "Festivals",
+        "name_ar": "\u0627\u0644\u0645\u0647\u0631\u062c\u0627\u0646\u0627\u062a",
+        "category": 3,
+        "is_active": true,
+        "slug": "Festivals"
+    }
+}
+]

@@ -1,0 +1,49 @@
+{% load i18n %}
+
+<div class="d-flex mb-4 flex-row flex-wrap justify-content-end ">
+    <a data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans 'Facebook' %}"
+       href="https://www.facebook.com/sharer.php?u={{ host }}://{{ request.get_host }}{{ url_name }}"
+       rel="external noopener nofollow" target="_blank"
+       class=" mb-2 mx-2 share-links btn text-light shared-icon-background-facebook"
+       data-raw="https://www.facebook.com/sharer.php?u={post_link}">
+        <i class="fa fa-lg fa-facebook shared-icon"></i>
+    </a>
+    <a data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans 'Twitter' %}"
+       href="https://twitter.com/intent/tweet?text={{ description }}&amp;url={{ host }}://{{ request.get_host }}{{ url_name }}"
+       rel="external noopener nofollow" target="_blank"
+       class=" mb-2 mx-2 share-links btn text-light shared-icon-background-twitter"
+       data-raw="https://twitter.com/intent/tweet?text={post_title}&amp;url={post_link}">
+        <i class="fa fa-lg fa-twitter shared-icon"></i>
+    </a>
+    <a data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans 'WhatsApp' %}"
+       href="https://api.whatsapp.com/send?text={{ host }}://{{ request.get_host }}{{ url_name }}"
+       rel="external noopener nofollow"  target="_blank"
+       class=" mb-2 mx-2 share-links btn text-light shared-icon-background-whatsapp"
+    >
+        <i class="fa  fa-lg fa-whatsapp shared-icon"></i>
+    </a>
+    <a data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans 'Linkedin' %}"
+       href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ host }}://{{ request.get_host }}{{ url_name }}&amp;title={{ description }}"
+       rel="external noopener nofollow"
+       target="_blank"
+       class=" mb-2 mx-2 share-links btn text-light shared-icon-background-linkedIn"
+       data-raw="https://www.linkedin.com/shareArticle?mini=true&amp;url={post_full_link}&amp;title={post_title}">
+        <i class="fa  fa-lg fa-linkedin-square shared-icon"></i>
+    </a>
+    <a data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans 'Pinterest' %}"
+       href="https://pinterest.com/pin/create/button/?url={{ host }}://{{ request.get_host }}{{ url_name }}&amp;description={{ description }}&amp;media=https://i2.wp.com/medteb.com/wp-content/uploads/2021/04/MedTeb-Template-11.jpg?fit=1200%2C800&amp;ssl=1"
+       rel="external noopener nofollow" target="_blank"
+       class=" mb-2 mx-2 share-links btn text-light shared-icon-background-pinterest"
+       data-raw="https://pinterest.com/pin/create/button/?url={post_link}&amp;description={post_title}&amp;media={post_img}">
+        <i class="fa  fa-lg fa-pinterest-square shared-icon"></i>
+
+    </a>
+    <a data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans 'Massager' %}"
+       href="https://www.facebook.com/dialog/send?app_id=5303202981&amp;display=popup&amp;link={{ host }}://{{ request.get_host }}{{ url_name }}&amp;redirect_uri={{ host }}://{{ request.get_host }}{{ url_name }}"
+       rel="external noopener nofollow"
+       target="_blank"
+       class=" mb-2 mx-2 share-links btn text-light shared-icon-background-messenger"
+       data-raw="https://www.facebook.com/dialog/send?app_id=5303202981&amp;display=popup&amp;link={post_link}&amp;redirect_uri={post_link}">
+        <i class="fa  fa-lg fa-facebook-square shared-icon"></i>
+    </a>
+</div>

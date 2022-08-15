@@ -1,0 +1,62 @@
+{% load i18n %}
+{% load main %}
+
+<div class="text-center mt-1 row">
+    <div class="col-md">
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link text-white page-number button-right-radius" href="?{% param_replace page=page_obj.previous_page_number %}"
+                           tabindex="-1">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">{% trans 'Previous' %}</span>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <a class="page-link text-white page-number button-right-radius" href="#" tabindex="-1">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">{% trans 'Previous' %}</span>
+                        </a>
+                    </li>
+                {% endif %}
+
+                {% for i in page_range %}
+                    {% if page_obj.number == i %}
+                        <li class="page-item active">
+                            <a class="page-link text-white page-number" href="#">{{ i }} <span
+                                    class="sr-only">{% trans 'current' %} </span></a>
+                        </li>
+                    {% else %}
+                        <li class="page-item">
+                            <a class="page-link text-white page-number" href="?{% param_replace page=i %}">{{ i }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link text-white page-number button-left-radius" href="?{% param_replace page=page_obj.next_page_number %}"
+                           tabindex="-1">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">{% trans 'Next' %}</span>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <a class="page-link text-white page-number button-left-radius" href="#" tabindex="-1">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">{% trans 'Next' %}</span>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+    <div class="col-md-auto">
+        {% trans 'Showing' %}
+        <b>{{ page_obj.start_index }}</b> - <b>{{ page_obj.end_index }}</b> {% trans 'of' %}
+        <b>{{ paginator.count }}</b> {% trans 'items' %}
+    </div>
+</div>

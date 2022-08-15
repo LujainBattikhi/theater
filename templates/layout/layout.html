@@ -6,13 +6,14 @@
     {% include "layout/_header.html" %}
 
 
-    <div class="main-wrapper">
+    <div class="mb-0 container-fluid main-wrapper">
         {% include "layout/_messages.html" %}
         <div class="main-content-wrapper">
             {% block content %}
             {% endblock %}
         </div>
     </div>
+    <div data-bs-toggle="tooltip" data-bs-placement="left" title="{% trans 'Back To Top' %}" id='toTop'><i class="fa fa-2x text-dark-red btn fa-arrow-circle-o-up"></i></div>
     {% include "layout/_footer.html" %}
 
 {% endblock %}
