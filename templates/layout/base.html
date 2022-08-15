@@ -36,11 +36,11 @@
     <link rel="canonical" href="{% block canonical %}{% endblock %}">
     <meta name="robots" content="noodp,noydir"/>
     <link rel="shortcut icon" href="{% static 'images/logo.png' %}" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
 
     {% compress css %}
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'vendor/css/bootstrap.min.css' %}">
         <link href="{% static 'vendor/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
         <link href="{% static 'vendor/owlcarousel/assets/owl.theme.default.min.css' %}" rel="stylesheet">
