@@ -11,3 +11,4 @@ crispy-bootstrap5
 gunicorn
 psycopg2-binary
 dj-database-url
+django-ckeditor
