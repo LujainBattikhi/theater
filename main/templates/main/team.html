@@ -20,7 +20,7 @@
     </header>
     <div class="row flex-row card align-items-center justify-content-center">
         {% for team_member in object_list %}
-            <div class="text-center col-lg-4">
+            <div class="wow fadeIn text-center col-lg-4">
                 <a href="{{ team_member.get_absolute_url }}" class="">
                     <div class="text-center m-3">
                         <img class="bd-placeholder-img rounded-circle" width="140" height="140"
@@ -33,4 +33,8 @@
         {% endfor %}
 
     </div>
+
+    {% if object_list %}
+        {% pagination %}
+    {% endif %}
 {% endblock %}

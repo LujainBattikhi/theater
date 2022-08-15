@@ -20,7 +20,7 @@
 
         {% for report in object_list %}
 
-            <div class="reports_annual col-2 mx-3 mt-2 p-3 card">
+            <div class="wow fadeInUp reports_annual col-2 mx-3 mt-2 p-3 card">
                 <a data-pdf="{{ report.pdf.url }}" onclick="ShowPDF(this)" class="btn link-preview"
                    data-title="{{ report.publish_date }}">
                     <i class="fa report-icon text-dark-red fa-4x fa-file-pdf-o"></i>
@@ -31,6 +31,9 @@
         {% endfor %}
     </div>
 
+    {% if object_list %}
+        {% pagination %}
+    {% endif %}
     <!-- Modal -->
     <div class="modal  fade" id="pdfModal" tabindex="-1" role="dialog" aria-labelledby="pdfModalLabel"
          aria-hidden="true">

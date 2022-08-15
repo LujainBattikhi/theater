@@ -97,12 +97,21 @@ section p {
 
 
 footer {
-    position: fixed;
+    position: static;
     bottom: 0;
     background: #ffffff;
     width: 100%;
     flex: 0;
 
+}
+
+#toTop {
+    padding: 5px 3px;
+    color: #b02a2f;
+    position: fixed;
+    bottom: 5rem;
+    right: 5px;
+    display: none;
 }
 
 .team-member {
@@ -330,4 +339,20 @@ footer {
 
 .shared-icon-background-messenger {
     background-color: #0078ff;
+}
+
+.footer-social-media:hover {
+    display: inline-block;
+    border-radius: 60px;
+    box-shadow: 0 0 2px #e13138;
+    padding: 0.5em 0.6em;
+}
+
+.wow {
+    visibility: hidden;
+}
+
+.page-number {
+    background-color: #b02a2f !important;
+    border-color: #b02a2f !important
 }

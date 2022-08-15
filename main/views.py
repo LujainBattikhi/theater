@@ -21,7 +21,7 @@ class Main(TemplateView):
         return context
 
 
-class SubCategoryDetails(ListView):
+class ProductionListView(ListView):
     template_name = 'main/sub_category.html'
     model = Production
     paginate_by = 10
@@ -52,7 +52,7 @@ class SubCategoryDetails(ListView):
         return queryset
 
     def get_context_data(self, *, object_list=None, **kwargs):
-        context = super(SubCategoryDetails, self).get_context_data(**kwargs)
+        context = super(ProductionListView, self).get_context_data(**kwargs)
         context['object'] = self.object
         return context
 

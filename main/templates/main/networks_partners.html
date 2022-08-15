@@ -19,7 +19,7 @@
     <div class="px-5">
         {% for partner in object_list %}
 
-            <a class="w-100 btn  card-header bg-dark-red text-white fs-5 fw-bolder p-4 text-dark"
+            <a class="w-100 btn wow fadeInUp card-header bg-dark-red text-white fs-5 fw-bolder p-4 text-dark"
                data-bs-toggle="collapse" href="#collapse-{{ partner.id }}" role="button"
                aria-expanded="false" aria-controls="{{ partner.id }}">
                 {{ partner|get_translation_data:'name' }}
@@ -31,6 +31,10 @@
                 </div>
             </div>
         {% endfor %}
+
+        {% if object_list %}
+            {% pagination %}
+        {% endif %}
 
     </div>
 {% endblock %}

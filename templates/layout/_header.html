@@ -12,7 +12,7 @@
                 <li class="nav-item  me-auto ">
                     <a class="nav-link active" aria-current="page" href="{% url 'main:main' %}">{% trans 'Home' %}</a>
                 </li>
-                <li class="nav-item  me-auto dropdown">
+                <li class="nav-item  dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
                         {% trans 'Who we are' %}
@@ -31,7 +31,7 @@
                     </ul>
                 </li>
                 {% for category in categories %}
-                    <li class="nav-item  me-auto dropdown">
+                    <li class="nav-item  dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">
                             {{ category }}
