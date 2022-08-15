@@ -6,5 +6,5 @@ csscompressor
 django-modeltranslation
 django-autoslug
 Pillow
-django-tinymce4-lite
-django-filebrowser
+django-admin-volt
+crispy-bootstrap5

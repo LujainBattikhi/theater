@@ -15,13 +15,20 @@ Including another URLconf
 """
 from django.urls import path
 
-from main.views import Main, SubCategoryDetails, ProductionDetails, TeamList, TeamMemberDetails
+from main.views import Main, SubCategoryDetails, ProductionDetails, TeamList, TeamMemberDetails, HeadLineDetailView, \
+    AnnualReportsDetailView, NetworkPartnerDetailView, DonateSupportTemplateView, ContactUsTemplateView
 
 app_name = 'main'
 urlpatterns = [
     path('', Main.as_view(), name='main'),
     path('category/<str:slug>', SubCategoryDetails.as_view(), name='sub_category_details'),
+    path('category/', SubCategoryDetails.as_view(), name='sub_category_details'),
     path('production/<str:slug>', ProductionDetails.as_view(), name='production_details'),
     path('team', TeamList.as_view(), name='team'),
     path('team/<str:slug>', TeamMemberDetails.as_view(), name='team_member'),
+    path('headline/<str:slug>', HeadLineDetailView.as_view(), name='headline'),
+    path('annual-reports', AnnualReportsDetailView.as_view(), name='annual_reports'),
+    path('networks-&-partners', NetworkPartnerDetailView.as_view(), name='networks_and_partners'),
+    path('donate-&-support', DonateSupportTemplateView.as_view(), name='donate_and_support'),
+    path('contact-us', ContactUsTemplateView.as_view(), name='contact_us'),
 ]

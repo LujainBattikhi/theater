@@ -14,14 +14,18 @@
     <!--==========================
       Production Section
     ============================-->
-    <h4 class="p-3 text-center fw-bolder card-title">{{ object.title }}</h4>
+    <h4 class="p-3 text-center fw-bolder card-title">{{ object|get_translation_data:'title' }}</h4>
 
     <div class="m-3 align-items-center text-center p-3 card">
         <img src="{{ object.image.url }}" width="500" height="500" class="img-thumbnail" alt="...">
-        <div class="card-body">
-            <h5 class=" card-text text-start"><i class="fa fa-lg mx-2 fa-calendar"></i>  {{ object.publish_date|date:'' }}</h5>
+        <div class="w-100 card-body">
+            <h5 data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans 'Publish Date' %}"
+                class=" card-text float-start text-start">
+                <i class="fa fa-lg mx-2 fa-calendar"></i> {{ object.publish_date|date:'' }}</h5>
+            {% include 'main/partials/share_social_media.html' with url_name=object.get_absolute_url  description=object|get_translation_data:'title' %}
+
             <hr>
-            <h5 class="p-3 card-text">{{ object.synopsis }}</h5>
+            <h5 class="p-3 card-text">{{ object|get_translation_data:'synopsis'|safe }}</h5>
         </div>
     </div>
 

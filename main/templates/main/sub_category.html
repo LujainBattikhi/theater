@@ -18,23 +18,31 @@
         <div class="container">
 
             <header class="text-capitalize section-header">
-                <h3>{{ object|get_translation_data:'name' }}</h3>
+                {% if object %}
+                    <h3>{{ object|get_translation_data:'name' }}</h3>
+                {% else %}
+                    <h3>{% trans 'Productions' %}</h3>
+                {% endif %}
+
             </header>
 
             <div class="row justify-content-center">
-                {% for production in object.productions.all %}
+                {% for production in object_list %}
                     <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-                        <div class="box">
-                            <div class="my-4">
-                                <img width="300" height="300" class="img-thumbnail img-fluid"
-                                     src="{{ production.image.url }}"/>
+                        <a href="{{ production.get_absolute_url }}">
+                            <div class="box">
+                                <div class="my-4">
+                                    <img width="300" height="300" class="img-thumbnail img-fluid"
+                                         src="{{ production.image.url }}"/>
+                                </div>
+                                <h4 class="title">{{ production|get_translation_data:'title' }}</h4>
+                                <div class="box-body">
+                                    <p class=" description">{{ production|get_translation_data:'synopsis'|truncatechars:100 }}</p>
+                                </div>
                             </div>
-                            <h4 class="title"><a href="{{ production.get_absolute_url }}">{{ production|get_translation_data:'title' }}</a></h4>
-                            <div class="box-body">
-                                <p class=" description">{{ production|get_translation_data:'synopsis'|truncatechars:100 }}</p>
-                            </div>
-                        </div>
+                        </a>
                     </div>
+
                 {% endfor %}
             </div>
 

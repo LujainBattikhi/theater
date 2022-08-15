@@ -1,21 +1,29 @@
 # Register your models here.
-from django.contrib import admin
-from django.db import models
-from tinymce.widgets import TinyMCE
 
-from main.models import Category, SubCategory, Production, TeamMember, HeadLine
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
+from django import forms
+from django.contrib import admin
+
+from main.models import Category, SubCategory, Production, TeamMember, HeadLine, AnnualReport, NetworkPartner
 
 admin.site.register(Category)
 admin.site.register(Production)
 admin.site.register(SubCategory)
 admin.site.register(TeamMember)
+admin.site.register(AnnualReport)
+admin.site.register(NetworkPartner)
 
 
-class textEditorAdmin(admin.ModelAdmin):
-    list_display = ["title"]
-    formfield_overrides = {
-        models.TextField: {'widget': TinyMCE()}
-    }
+class HeadLineAdminForm(forms.ModelForm):
+    content = forms.CharField(widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = HeadLine
+        fields = '__all__'
 
 
-admin.site.register(HeadLine, textEditorAdmin)
+class HeadLineAdmin(admin.ModelAdmin):
+    form = HeadLineAdminForm
+
+
+admin.site.register(HeadLine, HeadLineAdmin)

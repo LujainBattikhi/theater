@@ -12,37 +12,25 @@
 
 {% block content %}
     <!--==========================
-      Production Section
+      Team Section
     ============================-->
 
     <header class="section-header">
-        <h3>{% trans 'Team' %}</h3>
+        <h3>{% trans 'Inad Team' %}</h3>
     </header>
-    <div class="card flex-row d-flex flex-wrap justify-content-center align-items-center">
-
+    <div class="row flex-row card align-items-center justify-content-center">
         {% for team_member in object_list %}
-            <a href="{{ team_member.get_absolute_url }}" class=" team-member">
-                <div class="text-center m-3">
-                    <img width="200" height="200" class="rounded-circle" src="{{ team_member.image.url }}">
-                    <h5 class="fw-bolder text-dark-red my-2">{{ team_member.name }}</h5>
-                    <h5 class="fw-bold my-2">{{ team_member.job_title }}</h5>
-                </div>
-            </a>
-            <a href="{{ team_member.get_absolute_url }}" class=" team-member">
-                <div class="text-center m-3">
-                    <img width="200" height="200" class="rounded-circle" src="{{ team_member.image.url }}">
-                    <h5 class="fw-bolder text-dark-red my-2">{{ team_member.name }}</h5>
-                    <h5 class="fw-bold my-2">{{ team_member.job_title }}</h5>
-                </div>
-            </a>
-            <a href="{{ team_member.get_absolute_url }}" class=" team-member">
-                <div class="text-center m-3">
-                    <img width="200" height="200" class="rounded-circle" src="{{ team_member.image.url }}">
-                    <h5 class="fw-bolder text-dark-red my-2">{{ team_member.name }}</h5>
-                    <h5 class="fw-bold my-2">{{ team_member.job_title }}</h5>
-                </div>
-            </a>
+            <div class="text-center col-lg-4">
+                <a href="{{ team_member.get_absolute_url }}" class="">
+                    <div class="text-center m-3">
+                        <img class="bd-placeholder-img rounded-circle" width="140" height="140"
+                             src="{{ team_member.image.url }}">
+                        <h5 class="fw-bolder text-dark-red my-2">{{ team_member.name }}</h5>
+                        <h5 class="fw-bold my-2">{{ team_member.job_title }}</h5>
+                    </div>
+                </a>
+            </div><!-- /.col-lg-4 -->
         {% endfor %}
-    </div>
 
+    </div>
 {% endblock %}

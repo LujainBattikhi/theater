@@ -19,6 +19,7 @@ a:hover {
     color: #ad7072;;
 }
 
+
 .dropdown-item:active {
     background: #b02a2f;
 }
@@ -176,3 +177,157 @@ footer {
     color: #b02a2f;
 }
 
+#guideline {
+    padding: 200px 0;
+}
+
+.reports_annual:hover {
+    background: #69696914
+}
+
+.card {
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 10px 29px 0 rgb(68 88 144 / 10%);
+    transition: all 0.3s ease-in-out;
+    border: none;
+
+}
+
+
+.wrapper {
+    width: 100%;
+    box-shadow: 0px 21px 41px -13px rgb(0 0 0 / 18%);
+}
+
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.contact-wrap {
+    background: #fff;
+}
+
+#form-message-warning {
+    color: red;
+}
+
+@media (min-width: 992px) {
+    .info-wrap {
+        margin-top: -20px;
+        margin-bottom: -20px;
+        border-radius: 5px;
+    }
+}
+
+.no-gutters > .col, .no-gutters > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.info-wrap .dbox {
+    width: 100%;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 25px;
+}
+
+.info-wrap .dbox .icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.info-wrap .dbox .icon span {
+    font-size: 20px;
+    color: #fff;
+}
+
+.info-wrap .dbox .icon span {
+    font-size: 20px;
+    color: #fff;
+}
+
+.info-wrap .dbox p {
+    margin-bottom: 0;
+}
+
+.info-wrap .dbox p span {
+    font-weight: 600;
+    color: #fff;
+}
+
+.info-wrap .dbox .text {
+    width: calc(100% - 50px);
+}
+
+.bg-dark-red {
+    background: #b02a2f;
+}
+
+.form-control:focus, .btn:focus {
+
+    border-color: #fe8686;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(253, 13, 13, 0.25);
+}
+
+/* Testimonials Section
+--------------------------------*/
+.read-more {
+    position: absolute;
+    right: 35%;
+    bottom: 1rem;
+}
+
+#productions .owl-nav,
+#productions .owl-dots {
+    margin-top: 5px;
+    text-align: center;
+    display: block;
+}
+
+#productions .owl-dot {
+    display: inline-block;
+    margin: 0 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(176, 42, 47, 0.25);
+
+
+}
+
+#productions .owl-dot.active {
+    background-color: #b02a2f;
+}
+
+
+.shared-icon {
+    font-size: 14px;
+}
+
+.shared-icon-background-facebook {
+    background-color: #4080FF;
+}
+
+.shared-icon-background-twitter {
+    background-color: #40bff5;
+}
+
+.shared-icon-background-whatsapp {
+    background-color: #02dd70;
+}
+
+.shared-icon-background-linkedIn {
+    background-color: #238cc8;
+}
+
+.shared-icon-background-pinterest {
+    background-color: #e13138;
+}
+
+.shared-icon-background-messenger {
+    background-color: #0078ff;
+}

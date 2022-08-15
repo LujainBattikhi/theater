@@ -16,16 +16,14 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from filebrowser.sites import site
 
 from theater import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('admin/filebrowser/', site.urls),
-    path('grappelli/', include('grappelli.urls')),
     path('', include('main.urls')),
-    path('tinymce/', include('tinymce.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+
 ]
 
 if settings.DEBUG:

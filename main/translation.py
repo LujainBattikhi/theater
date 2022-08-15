@@ -1,6 +1,6 @@
 from modeltranslation.translator import translator, TranslationOptions
 
-from main.models import Category, SubCategory, Production, TeamMember
+from main.models import Category, SubCategory, Production, TeamMember, HeadLine, NetworkPartner
 from theater.settings import MODELTRANSLATION_LANGUAGES
 
 
@@ -34,3 +34,19 @@ class TeamMemberTranslationOptions(TranslationOptions):
 
 
 translator.register(TeamMember, TeamMemberTranslationOptions)
+
+
+class HeadLineTranslationOptions(TranslationOptions):
+    fields = HeadLine.translatable_fields_list()
+    required_languages = MODELTRANSLATION_LANGUAGES
+
+
+translator.register(HeadLine, HeadLineTranslationOptions)
+
+
+class NetworkPartnerTranslationOptions(TranslationOptions):
+    fields = NetworkPartner.translatable_fields_list()
+    required_languages = MODELTRANSLATION_LANGUAGES
+
+
+translator.register(NetworkPartner, NetworkPartnerTranslationOptions)

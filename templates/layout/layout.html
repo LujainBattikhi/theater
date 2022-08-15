@@ -6,13 +6,13 @@
     {% include "layout/_header.html" %}
 
 
-    <div class="container-fluid pt-5 main-wrapper">
+    <div style="margin-bottom: 10%;" class="container-fluid main-wrapper">
         {% include "layout/_messages.html" %}
         <div class="main-content-wrapper">
             {% block content %}
             {% endblock %}
         </div>
     </div>
-        {% include "layout/_footer.html" %}
+    {% include "layout/_footer.html" %}
 
 {% endblock %}
