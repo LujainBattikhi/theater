@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'Changa-Bold';
+    font-style: normal;
+    font-weight: 700;
+    src: url(Changa-Bold.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'Changa-ExtraBold';
+    font-style: normal;
+    font-weight: 800;
+    src: url(Changa-ExtraBold.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'Changa-SemiBold';
+    font-style: normal;
+    font-weight: 600;
+    src: url(Changa-ExtraBold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Changa-ExtraLight';
+    font-style: normal;
+    font-weight: 200;
+    src: url(Changa-ExtraLight.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Changa-Light';
+    font-style: normal;
+    font-weight: 300;
+    src: url(Changa-Light.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Changa-Medium';
+    font-style: normal;
+    font-weight: 500;
+    src: url(Changa-Medium.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'Changa-Regular';
+    font-style: normal;
+    font-weight: 400;
+    src: url(Changa-Regular.ttf) format('truetype');
+}

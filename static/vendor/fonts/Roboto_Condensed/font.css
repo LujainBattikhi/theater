@@ -1,0 +1,41 @@
+@font-face {
+    font-family: 'RobotoCondensed-Bold';
+    font-style: normal;
+    font-weight: 700;
+    src: url(RobotoCondensed-Bold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'RobotoCondensed-BoldItalic';
+    font-style: normal;
+    font-weight: 700;
+    src: url(RobotoCondensed-BoldItalic.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'RobotoCondensed-Italic';
+    font-style: normal;
+    font-weight: 400;
+    src: url(RobotoCondensed-Italic.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'RobotoCondensed-Light';
+    font-style: normal;
+    font-weight: 300;
+    src: url(RobotoCondensed-Light.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'RobotoCondensed-LightItalic';
+    font-style: normal;
+    font-weight: 300;
+    src: url(RobotoCondensed-LightItalic.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'RobotoCondensed-Regular';
+    font-style: normal;
+    font-weight: 400;
+    src: url(RobotoCondensed-Regular.ttf) format('truetype');
+}

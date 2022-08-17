@@ -6,7 +6,6 @@ csscompressor
 django-modeltranslation
 django-autoslug
 Pillow
-django-admin-volt
 crispy-bootstrap5
 gunicorn
 psycopg2-binary==2.8.6
