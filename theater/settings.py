@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-vboxl*4&%7*)c!p9al&a2cfa&q+9#n$fwvu=#&_9%e+b&mu#^j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["inadtheater.ps", "127.0.0.1", "localhost", "*"]
+ALLOWED_HOSTS = ["inadtheater.ps", "127.0.0.1", "localhost", ]
 
 # Application definition
 
