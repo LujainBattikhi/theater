@@ -136,6 +136,22 @@ class Production(BaseModel):
         return self.title
 
 
+class ProductionImage(models.Model):
+    TYPE_GALLERY = 'gallery'
+    TYPE_NEWS = 'news'
+    TYPE_CHOICES = [
+        (TYPE_GALLERY, _('Gallery')),
+        (TYPE_NEWS, _('News')),
+    ]
+    production = models.ForeignKey(Production, related_name='images', on_delete=models.PROTECT, )
+    image = models.ImageField()
+    type = models.CharField(
+        default=TYPE_GALLERY, max_length=255,
+        choices=TYPE_CHOICES,
+        verbose_name=_('Type')
+    )
+
+
 class TeamMember(BaseModel):
     """
     Production model

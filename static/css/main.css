@@ -1,9 +1,14 @@
 body {
     background-color: #f5f8fd;
-    font-family: 'Cairo', sans-serif;
+    font-family: 'RobotoCondensed-Regular', Arial, serif;
     font-size: 16px;
     line-height: 18px;
     color: #777;
+
+}
+
+.font-bold {
+    font-family: 'RobotoCondensed-Bold', Arial, serif;
 
 }
 
@@ -29,32 +34,6 @@ a, a:hover, a:focus {
     outline: 0;
 }
 
-h1, h2, h3,
-h4, h5, h6 {
-    color: #333;
-    margin: 0;
-    font-weight: normal;
-}
-
-h1 {
-    font-size: 28px;
-}
-
-h2 {
-    font-size: 24px;
-}
-
-h3 {
-    font-size: 18px;
-}
-
-h5 {
-    font-size: 16px;
-}
-
-h6 {
-    font-size: 14px;
-}
 
 strong {
     letter-spacing: 1px;
@@ -97,12 +76,7 @@ section p {
 
 
 footer {
-    position: static;
-    bottom: 0;
     background: #ffffff;
-    width: 100%;
-    flex: 0;
-
 }
 
 #toTop {
@@ -153,7 +127,6 @@ footer {
 }
 
 .title {
-    font-weight: 700;
     margin-bottom: 15px;
     font-size: 18px;
 }
@@ -163,7 +136,6 @@ footer {
     font-size: 36px;
     color: #333333;
     text-align: center;
-    font-weight: 700;
     position: relative;
     padding-bottom: 60px;
 }
@@ -183,7 +155,7 @@ footer {
 }
 
 .text-dark-red {
-    color: #b02a2f;
+    color: #b02a2f !important;
 }
 
 #guideline {
@@ -230,6 +202,18 @@ footer {
     }
 }
 
+@media (min-width: 442px) {
+    .main-wrapper {
+        min-height: calc(100vh - 260px);
+    }
+}
+
+@media (max-width: 442px) {
+    .main-wrapper {
+        min-height: calc(100vh - 240px);
+    }
+}
+
 .no-gutters > .col, .no-gutters > [class*="col-"] {
     padding-right: 0;
     padding-left: 0;
@@ -263,7 +247,6 @@ footer {
 }
 
 .info-wrap .dbox p span {
-    font-weight: 600;
     color: #fff;
 }
 

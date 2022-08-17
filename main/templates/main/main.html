@@ -11,69 +11,39 @@
 
 
 {% block content %}
-    <div class="container-fluid mt-5">
-        <h1 class="text-center fs-1 mb-5 ">
-            {% trans 'Inad Theater Lastest Productions' %}
-            <hr class="text-dark-red">
-        </h1>
+    <h1 class="text-center fs-1 font-bold mb-5">
+        {% trans 'Inad Theater Lastest Productions' %}
+        <hr class="text-dark-red">
+    </h1>
 
-        <!--==========================
-                Featured Productions Section
-        ============================-->
-        <section id="productions">
-            <div class="wow fadeInUp  row justify-content-center">
-                <div class="col-lg-9">
-                    <div class="owl-carousel text-center main-carousel">
-                        {% for featured_production in featured_productions %}
-                            <div class="card me-3 " style="width: 20rem;height: 25rem;">
-                                <img src="{{ featured_production.image.url }}" class="card-img-top"
-                                     alt="{{ featured_production|get_translation_data:'title' }}">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ featured_production|get_translation_data:'title' }}</h5>
-                                    <p class="card-text">{{ featured_production|get_translation_data:'synopsis'|truncatechars:50 }}</p>
-                                    <a href="{{ featured_production.get_absolute_url }}"
-                                       class="read-more btn btn-outline-dark-red">
-                                        Read More
-                                    </a>
-                                </div>
+    <!--==========================
+            Featured Productions Section
+    ============================-->
+    <section id="productions">
+        <div class="wow fadeInUp  row justify-content-center">
+            <div class="col-lg-9">
+                <div class="owl-carousel text-center main-carousel">
+                    {% for featured_production in featured_productions %}
+                        <div class="card me-3 " style="height: 25rem;">
+                            <img height="200" src="{{ featured_production.image.url }}" class="card-img-top"
+                                 alt="{{ featured_production|get_translation_data:'title' }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ featured_production|get_translation_data:'title' }}</h5>
+                                <p class="card-text">
+                                    {{ featured_production|get_translation_data:'synopsis'|truncatechars:50|safe }}
+                                </p>
+                                <a href="{{ featured_production.get_absolute_url }}"
+                                   class="read-more btn btn-outline-dark-red">
+                                    Read More
+                                </a>
                             </div>
-                        {% endfor %}
-                    </div>
-
+                        </div>
+                    {% endfor %}
                 </div>
 
             </div>
-        </section>
 
-        {##}
-        {#        <!--==========================#}
-        {#      Testimonials Section#}
-        {#    ============================-->#}
-        {#        <section id="testimonials" dir="ltr">#}
-        {#            <div class="container">#}
-        {#                <div class="row justify-content-center">#}
-        {#                    <div class="col-lg-8">#}
-        {##}
-        {#                        <div class="owl-carousel main-carousel">#}
-        {#                            {% for featured_production in featured_productions %}#}
-        {#                                <div class="testimonial-item">#}
-        {#                                    <img src="{{ featured_production.image.url }}" class="testimonial-img"#}
-        {#                                         alt="{{ featured_production|get_translation_data:'title' }}">#}
-        {#                                    <h3>{{ featured_production|get_translation_data:'title' }}</h3>#}
-        {#                                    <h4>{{ featured_production|get_translation_data:'synopsis' }}</h4>#}
-        {#                                    <p>#}
-        {#                                        {{ featured_production|get_translation_data:'synopsis' }}#}
-        {#                                    </p>#}
-        {#                                </div>#}
-        {#                            {% endfor %}#}
-        {#                        </div>#}
-        {##}
-        {#                    </div>#}
-        {#                </div>#}
-        {##}
-        {##}
-        {#            </div>#}
-        {#        </section><!-- #testimonials -->#}
+        </div>
+    </section>
 
-    </div>
 {% endblock %}

@@ -3,12 +3,14 @@
 {% load i18n %}
 
 {% block base_content %}
+
     {% include "layout/_header.html" %}
 
 
-    <div class="mb-0 container-fluid main-wrapper">
+    <div class="mb-0 container main-wrapper">
         {% include "layout/_messages.html" %}
-        <div class="main-content-wrapper">
+        <div class="main-content-wrapper container-fluid mt-5">
+
             {% block content %}
             {% endblock %}
         </div>

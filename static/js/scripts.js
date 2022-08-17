@@ -1,19 +1,3 @@
-$(document).ready(function () {
-        setInterval(function () {
-            var docHeight = $(window).height();
-            var footerHeight = $('footer').height();
-            var footerTop = $('footer').position().top + footerHeight;
-            var marginTop = (docHeight - footerTop - 35);
-
-            if (footerTop < docHeight)
-                $('footer').css('margin-top', marginTop + 'px'); // padding of 30 on footer
-            else
-                $('footer').css('margin-top', '0px');
-            // console.log("docheight: " + docHeight + "\n" + "footerheight: " + footerHeight + "\n" + "footertop: " + footerTop + "\n" + "new docheight: " + $(window).height() + "\n" + "margintop: " + marginTop);
-        }, 250);
-    }
-);
-
 function ShowPDF(element) {
     let pdf = $(element).data('pdf');
     let title = $(element).data('title');
@@ -23,34 +7,37 @@ function ShowPDF(element) {
 }
 
 var owl = $(".main-carousel");
-owl.owlCarousel({
-    autoplay: true,
-    dots: true,
-    loop: true,
-    center: true,
-    rtl: true,
-    responsive: {
-        0: {
-            items: 1
-        },
-        600: {
-            items: 1
-        },
-        960: {
-            items: 3
-        },
-        1200: {
-            items: 3
+var owlGallery = $(".gallery");
+var owlNews = $(".news");
+owls = [owl, owlGallery, owlNews]
+owls.forEach(function (item) {
+    item.owlCarousel({
+        autoplay: true,
+        dots: true,
+        lazyLoad: true,
+
+        loop: true,
+        center: true,
+        rtl: true,
+        responsiveClass: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 1
+            },
+            700: {
+                items: 2
+            },
+            960: {
+                items: 3
+            },
+            1200: {
+                items: 3
+            },
         }
-    }
-});
-owl.on('mousewheel', '.owl-stage', function (e) {
-    if (e.deltaY > 0) {
-        owl.trigger('next.owl');
-    } else {
-        owl.trigger('prev.owl');
-    }
-    e.preventDefault();
+    });
 });
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
