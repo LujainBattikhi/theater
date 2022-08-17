@@ -11,43 +11,40 @@
 
 
 {% block content %}
+    <h1 class="text-center fs-1 font-bold mb-5">
+        {% if object %}
+           {{ object|get_translation_data:'name' }}
+        {% else %}
+            {% trans 'Productions' %}
+        {% endif %}
+        <hr class="text-dark-red">
+    </h1>
+
     <!--==========================
       Productions Section
     ============================-->
-    <section id="productions" class="section-bg">
-        <div class="container">
 
-            <header class="text-capitalize section-header">
-                {% if object %}
-                    <h3>{{ object|get_translation_data:'name' }}</h3>
-                {% else %}
-                    <h3>{% trans 'Productions' %}</h3>
-                {% endif %}
 
-            </header>
-
-            <div class="row justify-content-center">
-                {% for production in object_list %}
-                    <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-                        <a href="{{ production.get_absolute_url }}">
-                            <div class="box">
-                                <div class="my-4">
-                                    <img width="300" height="300" class="img-thumbnail img-fluid"
-                                         src="{{ production.image.url }}"/>
-                                </div>
-                                <h4 class="title">{{ production|get_translation_data:'title' }}</h4>
-                                <div class="box-body">
-                                    <p class=" description">{{ production|get_translation_data:'synopsis'|truncatechars:100 }}</p>
-                                </div>
-                            </div>
-                        </a>
+    <div class="row justify-content-center">
+        {% for production in object_list %}
+            <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+                <a href="{{ production.get_absolute_url }}">
+                    <div class="box">
+                        <div class="my-4">
+                            <img width="300" height="300" class="img-thumbnail img-fluid"
+                                 src="{{ production.image.url }}"/>
+                        </div>
+                        <h4 class="title">{{ production|get_translation_data:'title' }}</h4>
+                        <div class="box-body">
+                            <p class=" description">{{ production|get_translation_data:'synopsis'|truncatechars:100 }}</p>
+                        </div>
                     </div>
-
-                {% endfor %}
+                </a>
             </div>
 
-        </div>
-    </section><!-- #services -->
+        {% endfor %}
+    </div>
+
     {% if object_list %}
         {% pagination %}
     {% endif %}

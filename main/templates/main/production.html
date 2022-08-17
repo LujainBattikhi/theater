@@ -15,12 +15,15 @@
       Production Section
     ============================-->
 
-    <h4 class="p-3 text-center fw-bolder card-title">{{ object|get_translation_data:'title' }}</h4>
+    <h1 class="text-center fs-1 font-bold mb-5">
+        {{ object|get_translation_data:'title' }}
+        <hr class="text-dark-red">
+    </h1>
 
     <div class="m-3 align-items-center text-center p-3 card">
         <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
              aria-label="breadcrumb">
-            <ol class="breadcrumb">
+            <ol class="justify-content-center breadcrumb">
                 <li class="breadcrumb-item">
                     <a href="/">Home</a>
                 </li>
@@ -32,14 +35,59 @@
         </nav>
         <img src="{{ object.image.url }}" width="500" height="500" class="img-thumbnail" alt="...">
         <div class="w-100 card-body">
-            <h5 data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans 'Publish Date' %}"
-                class=" card-text float-start text-start">
-                <i class="fa fa-lg mx-2 fa-calendar"></i> {{ object.publish_date|date:'' }}</h5>
-            {% include 'main/partials/share_social_media.html' with url_name=object.get_absolute_url  description=object|get_translation_data:'title' %}
 
+            {% include 'main/partials/share_social_media.html' with url_name=object.get_absolute_url  description=object|get_translation_data:'title' %}
+            <h5 data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans 'Publish Date' %}"
+                class=" card-text text-start">
+                <i class="fa fa-lg mx-2 fa-calendar"></i> {{ object.created_at|date:'' }}
+            </h5>
             <hr>
             <h5 class="p-3 card-text">{{ object|get_translation_data:'synopsis'|safe }}</h5>
         </div>
     </div>
+    <!--==========================
+            Gallery Section
+    ============================-->
+    <h3 class="text-center mt-4 font-bold mb-5">
+        {% trans 'Gallery' %}
+        <hr class="text-dark-red">
+    </h3>
+    <section id="gallery">
+        <div class="wow fadeInUp  row justify-content-center">
+            <div class="col-lg-9">
+                <div class="owl-carousel text-center gallery">
+                    {% for production_image in gallery %}
+                        <img height="200" data-src="{{ production_image.image.url }}" class="p-2 owl-lazy card-img-top"
+                             alt="{{ featured_production|get_translation_data:'title' }}">
+                    {% endfor %}
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!--==========================
+            News Section
+    ============================-->
+    <h3 class="text-center mt-4 font-bold mb-5">
+        {% trans 'News' %}
+        <hr class="text-dark-red">
+    </h3>
+    <section id="news">
+        <div class="wow fadeInUp  row justify-content-center">
+            <div class="col-lg-9">
+                <div class="owl-carousel text-center news">
+                    {% for production_image in news %}
+                        <img height="200" data-src="{{ production_image.image.url }}"
+                             class="p-2 owl-lazy card-img-top"
+                             alt="{{ featured_production|get_translation_data:'title' }}">
+                    {% endfor %}
+                </div>
+
+            </div>
+
+        </div>
+    </section>
 
 {% endblock %}

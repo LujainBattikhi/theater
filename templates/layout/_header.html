@@ -10,16 +10,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item  me-auto ">
-                    <a class="nav-link active" aria-current="page" href="{% url 'main:main' %}">{% trans 'Home' %}</a>
+                    <a class=" font-bold text-dark-red nav-link" aria-current="page" href="{% url 'main:main' %}">{% trans 'Home' %}</a>
                 </li>
                 <li class="nav-item  dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    <a class="font-bold text-dark-red nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
                         {% trans 'Who we are' %}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         {% for headline in headlines %}
-                            <li><a class="p-3 dropdown-item" href="{{ headline.get_absolute_url }}">
+                            <li>
+                                <a class="p-3 dropdown-item" href="{{ headline.get_absolute_url }}">
                                 {{ headline|get_translation_data:'title' }}
                             </a>
                             </li>
@@ -32,7 +33,7 @@
                 </li>
                 {% for category in categories %}
                     <li class="nav-item  dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        <a class="font-bold text-dark-red nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">
                             {{ category }}
                         </a>
@@ -50,19 +51,19 @@
                     </li>
                 {% endfor %}
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page"
+                    <a class="font-bold text-dark-red nav-link" aria-current="page"
                        href="{% url 'main:annual_reports' %}">  {% trans 'Annual Reports' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page"
+                    <a class="font-bold text-dark-red nav-link" aria-current="page"
                        href="{% url 'main:networks_and_partners' %}">  {% trans 'Networks & Partners' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page"
+                    <a class="font-bold text-dark-red nav-link" aria-current="page"
                        href="{% url 'main:donate_and_support' %}">  {% trans 'Donate & Support' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page"
+                    <a class="font-bold text-dark-red nav-link" aria-current="page"
                        href="{% url 'main:contact_us' %}">  {% trans 'Contact Us' %}</a>
                 </li>
             </ul>

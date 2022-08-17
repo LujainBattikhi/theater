@@ -8,7 +8,7 @@ class MessageForm(forms.Form):
     name = forms.CharField(required=True)
     email = forms.EmailField(required=True)
     subject = forms.CharField(required=True)
-    body = forms.CharField(widget=forms.Textarea(), required=True)
+    body = forms.CharField(widget=forms.Textarea(attrs={'rows':4, 'cols':15}), required=True)
 
     def __init__(self, *args, **kwargs):
         super(MessageForm, self).__init__(*args, **kwargs)

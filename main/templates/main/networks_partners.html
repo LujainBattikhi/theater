@@ -11,11 +11,12 @@
 
 {% block content %}
 
-    <header class="section-header">
-        <h3>{% trans 'Networks & Partners' %}</h3>
-        <hr>
 
-    </header>
+    <h1 class="text-center fs-1 font-bold mb-5">
+        {% trans 'Networks & Partners' %}
+        <hr class="text-dark-red">
+    </h1>
+
     <div class="px-5">
         {% for partner in object_list %}
 

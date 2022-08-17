@@ -8,7 +8,7 @@ from django.views.generic import TemplateView, FormView, ListView
 from django.views.generic.detail import DetailView
 
 from main.forms import MessageForm
-from main.models import Production, TeamMember, HeadLine, AnnualReport, NetworkPartner, SubCategory
+from main.models import Production, TeamMember, HeadLine, AnnualReport, NetworkPartner, SubCategory, ProductionImage
 from main.utils import send_email
 
 
@@ -60,6 +60,12 @@ class ProductionListView(ListView):
 class ProductionDetails(DetailView):
     template_name = 'main/production.html'
     model = Production
+
+    def get_context_data(self, **kwargs):
+        context = super(ProductionDetails, self).get_context_data(**kwargs)
+        context['gallery'] = self.object.images.filter(type=ProductionImage.TYPE_GALLERY)
+        context['news'] = self.object.images.filter(type=ProductionImage.TYPE_NEWS)
+        return context
 
 
 class TeamList(ListView):

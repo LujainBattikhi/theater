@@ -1,8 +1,13 @@
 {% load static %}
 {% load i18n %}
 {% load compress %}
+
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% get_current_language as LANGUAGE_CODE %}
+
 <!DOCTYPE html>
-<html lang="ar" style="overflow-x: hidden;">
+<html lang="{{ LANGUAGE_CODE|default:"en" }}" {% if LANGUAGE_BIDI %}dir="rtl" {% else %}dir="ltr"{% endif %}
+      style="overflow-x: hidden;">
 <head>
     <meta charset="utf-8">
     <meta name="description" content="{% trans "theater" %}|{% block site_description %}{% endblock %}">
@@ -39,6 +44,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link href="{% static 'images/logo.png' %}" rel="icon">
+    <link href="{% static 'images/logo.png' %}" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    {% if LANGUAGE_BIDI %}
+        <link rel="stylesheet" href="{% static 'vendor/fonts/Changa/font.css' %}">
+    {% else %}
+        <link rel="stylesheet" href="{% static 'vendor/fonts/Roboto_Condensed/font.css' %}">
+    {% endif %}
+
+
 
     {% compress css %}
         <link rel="stylesheet" href="{% static 'vendor/css/bootstrap.min.css' %}">

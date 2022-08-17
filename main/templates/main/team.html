@@ -14,10 +14,11 @@
     <!--==========================
       Team Section
     ============================-->
+    <h1 class="text-center fs-1 font-bold mb-5">
+        {% trans 'Inad Team' %}
+        <hr class="text-dark-red">
+    </h1>
 
-    <header class="section-header">
-        <h3>{% trans 'Inad Team' %}</h3>
-    </header>
     <div class="row flex-row card align-items-center justify-content-center">
         {% for team_member in object_list %}
             <div class="wow fadeIn text-center col-lg-4">
