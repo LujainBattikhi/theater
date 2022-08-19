@@ -1,19 +1,19 @@
 {% extends 'layout/layout.html' %}
 {% load crispy_forms_tags static i18n main %}
-{% block og_image %} {% static 'images/logo-medteb.png' %}  {% endblock %}
-{% block site_title %} {% trans "Home" %} {% endblock %}
-{% block site_og_title %}{% trans "Home" %} {% endblock %}
-{% block site_og_description %} {% trans "Home" %} {% endblock %}
+{% block og_image %} {% static 'images/logo.png' %}  {% endblock %}
+{% block site_title %}  {{ object.name }} {% endblock %}
+{% block site_og_title %} {{ object.name }} {% endblock %}
+{% block site_og_description %}  {{ object.name }} {% endblock %}
 {% block site_description %}{% trans "Site Home Description" %}{% endblock %}
 {% block canonical %}{{ request.build_absolute_uri }}{% endblock %}
-{% block keywords %}{% trans "Home" %}{% endblock %}
+{% block keywords %} {{ object.name }}{% endblock %}
 {% block reading_time %}{{ object.reading_time|default:2 }}{% endblock %}
 
 
 {% block content %}
     <h1 class="text-center fs-1 font-bold mb-5">
         {% if object %}
-           {{ object|get_translation_data:'name' }}
+            {{ object.name }}
         {% else %}
             {% trans 'Productions' %}
         {% endif %}
@@ -34,9 +34,9 @@
                             <img width="300" height="300" class="img-thumbnail img-fluid"
                                  src="{{ production.image.url }}"/>
                         </div>
-                        <h4 class="title">{{ production|get_translation_data:'title' }}</h4>
+                        <h4 class="title">{{ production.title }}</h4>
                         <div class="box-body">
-                            <p class=" description">{{ production|get_translation_data:'synopsis'|truncatechars:100 }}</p>
+                            <p class=" description">{{ production.synopsis|safe|truncatechars:100 }}</p>
                         </div>
                     </div>
                 </a>

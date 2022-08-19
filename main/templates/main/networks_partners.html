@@ -1,12 +1,12 @@
 {% extends 'layout/layout.html' %}
 {% load crispy_forms_tags static i18n main %}
-{% block og_image %} {% static 'images/logo-medteb.png' %}  {% endblock %}
-{% block site_title %} {% trans "Home" %} {% endblock %}
-{% block site_og_title %}{% trans "Home" %} {% endblock %}
-{% block site_og_description %} {% trans "Home" %} {% endblock %}
+{% block og_image %} {% static 'images/logo.png' %}  {% endblock %}
+{% block site_title %} {% trans "Network And Partners" %} {% endblock %}
+{% block site_og_title %}{% trans "Network And Partners" %} {% endblock %}
+{% block site_og_description %} {% trans "Network And Partners" %} {% endblock %}
 {% block site_description %}{% trans "Site Home Description" %}{% endblock %}
 {% block canonical %}{{ request.build_absolute_uri }}{% endblock %}
-{% block keywords %}{% trans "Home" %}{% endblock %}
+{% block keywords %}{% trans "Network And Partners" %}{% endblock %}
 
 
 {% block content %}
@@ -23,11 +23,11 @@
             <a class="w-100 btn wow fadeInUp my-2 card-header bg-dark-red text-white fs-5 fw-bolder p-4 text-dark"
                data-bs-toggle="collapse" href="#collapse-{{ partner.id }}" role="button"
                aria-expanded="false" aria-controls="{{ partner.id }}">
-                {{ partner|get_translation_data:'name' }}
+                {{ partner.name }}
             </a>
             <div class="collapse" id="collapse-{{ partner.id }}">
                 <div class="card card-body">
-                    <p class="text-dark card-text">{{ partner|get_translation_data:'details' }}</p>
+                    <p class="text-dark card-text">{{ partner.details }}</p>
 
                 </div>
             </div>

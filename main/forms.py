@@ -5,10 +5,10 @@ from django.utils.translation import gettext_lazy as _
 
 
 class MessageForm(forms.Form):
-    name = forms.CharField(required=True)
-    email = forms.EmailField(required=True)
-    subject = forms.CharField(required=True)
-    body = forms.CharField(widget=forms.Textarea(attrs={'rows':4, 'cols':15}), required=True)
+    name = forms.CharField(required=True, label=_('Name'))
+    email = forms.EmailField(required=True, label=_('Email'))
+    subject = forms.CharField(required=True, label=_('Subject'))
+    body = forms.CharField(label=_('Body'), widget=forms.Textarea(attrs={'rows': 4, 'cols': 15}), required=True)
 
     def __init__(self, *args, **kwargs):
         super(MessageForm, self).__init__(*args, **kwargs)

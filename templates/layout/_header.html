@@ -1,4 +1,7 @@
 {% load crispy_forms_tags i18n static main %}
+{% get_language_info for LANGUAGE_CODE as lang %}
+{% get_language_info_list for available_languages as languages %}
+{% get_current_language as CURRENT_LANGUAGE %}
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
@@ -10,10 +13,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item  me-auto ">
-                    <a class=" font-bold text-dark-red nav-link" aria-current="page" href="{% url 'main:main' %}">{% trans 'Home' %}</a>
+                    <a class=" font-bold text-dark-red nav-link" aria-current="page"
+                       href="{% url 'main:main' %}">{% trans 'Home' %}</a>
                 </li>
                 <li class="nav-item  dropdown">
-                    <a class="font-bold text-dark-red nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    <a class="font-bold text-dark-red nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                       role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
                         {% trans 'Who we are' %}
                     </a>
@@ -21,8 +26,8 @@
                         {% for headline in headlines %}
                             <li>
                                 <a class="p-3 dropdown-item" href="{{ headline.get_absolute_url }}">
-                                {{ headline|get_translation_data:'title' }}
-                            </a>
+                                    {{ headline.title }}
+                                </a>
                             </li>
                         {% endfor %}
                         <li>
@@ -33,13 +38,14 @@
                 </li>
                 {% for category in categories %}
                     <li class="nav-item  dropdown">
-                        <a class="font-bold text-dark-red nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        <a class="font-bold text-dark-red nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                           role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">
                             {{ category }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             {% for sub_category in category.sub_categories.all %}
-                                <li>
+                                <li class="text-center">
                                     <a class="p-3 dropdown-item"
                                        href="{{ sub_category.get_absolute_url }}"
                                     >
@@ -67,10 +73,25 @@
                        href="{% url 'main:contact_us' %}">  {% trans 'Contact Us' %}</a>
                 </li>
             </ul>
-            <form action="{% url 'main:sub_category_details' %}" class="d-flex">
-                <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-dark-red" type="submit">Search</button>
-            </form>
+            <div class="mx-2 dropdown">
+                <button class="btn btn-outline-dark-red dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-language me-1"></i> {{ lang.name_local }}
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    {% for language in languages %}
+                        {% if language.code != CURRENT_LANGUAGE %}
+                            <li class="p-2 text-center">
+                                <a href="/{{ language.code }}/{{ request.get_full_path|slice:"4:" }}"
+                                >
+                                    {{ language.name_local }}
+
+                                </a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     </div>
 </nav>

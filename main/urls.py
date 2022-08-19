@@ -19,6 +19,7 @@ from main.views import Main, ProductionListView, ProductionDetails, TeamList, Te
     AnnualReportsDetailView, NetworkPartnerDetailView, DonateSupportTemplateView, ContactUsTemplateView
 
 app_name = 'main'
+
 urlpatterns = [
     path('', Main.as_view(), name='main'),
     path('category/<str:slug>', ProductionListView.as_view(), name='sub_category_details'),

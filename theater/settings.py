@@ -35,6 +35,7 @@ ALLOWED_HOSTS = ["inadtheater.ps", "127.0.0.1", "localhost", ]
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -53,6 +54,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -140,6 +142,9 @@ LANGUAGES = (
     ('ar', _('Arabic')),
 )
 
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
 MULTILINGUAL_LANGUAGES = (
     "en",
     "ar",

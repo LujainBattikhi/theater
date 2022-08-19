@@ -15,7 +15,6 @@ owls.forEach(function (item) {
         autoplay: true,
         dots: true,
         lazyLoad: true,
-
         loop: true,
         center: true,
         rtl: true,
@@ -60,4 +59,8 @@ $("#toTop").click(function () {
     //body works for Chrome but not FFX
     //This strange selector seems to work universally
     $("html, body").animate({scrollTop: 0}, 1000);
+});
+
+$("#buttonSubmit").click(function () {
+    $("#searchForm").submit();
 });

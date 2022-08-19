@@ -13,4 +13,9 @@ def get_navbar_details(request):
     """
     categories = Category.objects.filter(is_active=True)
     head_lines = HeadLine.objects.filter(is_active=True)
-    return {'categories': categories, 'headlines': head_lines, 'host': settings.HOST}
+    return {
+        'categories': categories,
+        'headlines': head_lines,
+        'host': settings.HOST,
+        'available_languages': settings.MULTILINGUAL_LANGUAGES
+    }

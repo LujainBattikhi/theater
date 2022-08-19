@@ -1,12 +1,12 @@
 {% extends 'layout/layout.html' %}
 {% load crispy_forms_tags static i18n main %}
-{% block og_image %} {% static 'images/logo-medteb.png' %}  {% endblock %}
-{% block site_title %} {% trans "Home" %} {% endblock %}
-{% block site_og_title %}{% trans "Home" %} {% endblock %}
-{% block site_og_description %} {% trans "Home" %} {% endblock %}
+{% block og_image %} {% static 'images/logo.png' %}  {% endblock %}
+{% block site_title %} {% trans "Donate And Support" %} {% endblock %}
+{% block site_og_title %}{% trans "Donate And Support" %} {% endblock %}
+{% block site_og_description %} {% trans "Donate And Support" %} {% endblock %}
 {% block site_description %}{% trans "Site Home Description" %}{% endblock %}
 {% block canonical %}{{ request.build_absolute_uri }}{% endblock %}
-{% block keywords %}{% trans "Home" %}{% endblock %}
+{% block keywords %}{% trans "Donate And Support" %}{% endblock %}
 
 
 {% block content %}
@@ -19,9 +19,6 @@
     <div class="wow fadeInUp  mb-4 card p-5">
 
         <div class="row ">
-            <div class="col-3">
-                <img class="img-fluid" src="{% static 'images/donate.jpg' %}">
-            </div>
             <div class="col-8 text-dark h5">
                 The Freedom Theatre is a non-profit organization in Jenin refugee camp, one of the most oppressed areas
                 of occupied Palestine – but also one of the most resilient. We know first-hand that there is immense
