@@ -1,0 +1,60 @@
+{% extends 'layout/layout.html' %}
+{% load crispy_forms_tags static i18n main %}
+{% block og_image %} {% static 'images/logo.png' %}  {% endblock %}
+{% block site_title %} {{ object.title }} {% endblock %}
+{% block site_og_title %}{{ object.title }} {% endblock %}
+{% block site_og_description %} {{ object.title }} {% endblock %}
+{% block site_description %}{% trans "Site Home Description" %}{% endblock %}
+{% block canonical %}{{ request.build_absolute_uri }}{% endblock %}
+{% block keywords %}{{ object.title }}{% endblock %}
+{% block reading_time %}{{ object.reading_time|default:2 }}{% endblock %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+
+
+
+{% block content %}
+    <!--==========================
+      Production Section
+    ============================-->
+
+    <h1 class="text-center fs-1 font-bold mb-5">
+        <img width="100" class="mx-3" height="100" src="data:image/png;base64, {{ production.get_qr_code }}">
+        {{ production.title }}
+        <hr class="text-dark-red">
+    </h1>
+
+    <div class="m-3 h5 card p-3">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" id="myProgram" role="tablist">
+            {% for date in available_dates %}
+                <li class="bg-gray nav-item" role="program">
+                    <a class="p-3 text-dark-red nav-link {% if active_date == date|date:'Y-m-d' or active_date == date %}active{% endif %}"
+                       id="{{ date }}-tab"
+                       href="{% url 'main:production_program' production.slug %}?date={{ date|date:'Y-m-d' }}"
+                       role="tab" aria-controls="{{ date }}" aria-selected="true">{{ date }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+        <!-- Tab panes -->
+        <div class="p-3  tab-content">
+            <div class=" row ">
+                <div class="border-bottom rounded-1  p-3 text-center text-dark-red col-4"></div>
+                <div class="border-end border-bottom border-start rounded-1  text-dark-red p-3 text-center  col-4"><i
+                        class="fa fa-lg fa-clock-o"></i></div>
+                <div class="border-bottom rounded-1  text-dark-red p-3 text-center col-4"><i
+                        class="fa fa-lg fa-map-marker"></i></div>
+            </div>
+            {% for object in object_list %}
+                <div class=" row ">
+                    <div class="border-bottom rounded-1   p-3 text-center  col-4">{{ object.title }}</div>
+                    <div class="border-end border-bottom border-start rounded-1   p-3 text-center  col-4">{{ object.time }}</div>
+                    <div class="border-bottom rounded-1   p-3 text-center col-4">{{ object.place }}</div>
+                </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+{% endblock %}

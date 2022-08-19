@@ -525,10 +525,10 @@ msgid "a.m."
 msgstr ""
 
 msgid "PM"
-msgstr ""
+msgstr "مساءً"
 
 msgid "AM"
-msgstr ""
+msgstr "صباحا"
 
 msgid "midnight"
 msgstr ""
