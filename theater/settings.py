@@ -35,6 +35,7 @@ ALLOWED_HOSTS = ["inadtheater.ps", "127.0.0.1", "localhost", ]
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
