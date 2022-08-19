@@ -1,12 +1,12 @@
 {% extends 'layout/layout.html' %}
 {% load crispy_forms_tags static i18n main %}
-{% block og_image %} {% static 'images/logo-medteb.png' %}  {% endblock %}
-{% block site_title %} {% trans "Home" %} {% endblock %}
-{% block site_og_title %}{% trans "Home" %} {% endblock %}
-{% block site_og_description %} {% trans "Home" %} {% endblock %}
+{% block og_image %} {% static 'images/logo.png' %}  {% endblock %}
+{% block site_title %}  {{ object.name }} {% endblock %}
+{% block site_og_title %} {{ object.name }} {% endblock %}
+{% block site_og_description %}  {{ object.name }} {% endblock %}
 {% block site_description %}{% trans "Site Home Description" %}{% endblock %}
 {% block canonical %}{{ request.build_absolute_uri }}{% endblock %}
-{% block keywords %}{% trans "Home" %}{% endblock %}
+{% block keywords %} {{ object.name }}{% endblock %}
 {% block reading_time %}{{ object.reading_time|default:2 }}{% endblock %}
 
 

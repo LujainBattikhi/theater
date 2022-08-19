@@ -10,32 +10,33 @@
       style="overflow-x: hidden;">
 <head>
     <meta charset="utf-8">
-    <meta name="description" content="{% trans "theater" %}|{% block site_description %}{% endblock %}">
+    <meta name="description" content="{% trans "Inad Theater" %}|{% block site_description %}{% endblock %}">
     <meta property="og:url" content="{{ request.build_absolute_uri }}">
-    <meta name="author" content="{% block site_author %}theater{% endblock %}">
+    <meta name="author" content="{% trans "Inad Theater" %}">
     <meta name="keywords" content="{% block keywords %}{% endblock %}"/>
     <meta property="og:locale" content="en_GB">
     <meta property="og:locale:alternate" content="ar_AR"/>
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="theater">
+    <meta property="og:site_name" content="Inad Theater">
     <meta property="og:image:width" content="300">
     <meta property="og:image:height" content="300">
     <meta property="og:image" itemprop="image" content="{% block og_image %}{% endblock %} ">
-    <meta property="og:image:alt" itemprop="image" content="theater">
+    <meta property="og:image:alt" itemprop="image" content="Inad Theater">
     <link rel='image_src' href='{% static '' %}'/>
     <meta name="version" content="1.0.0">
     <link rel="shortcut icon" type="image/png" href="{% static 'images/logo.png' %}"/>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="HandheldFriendly" content="true">
-    <title>{% trans "theater" %} | {% block site_title %}{% endblock %}</title>
-    <meta property="og:title" content="{% trans "theater" %} | {% block site_og_title %}{% endblock %}">
-    <meta property="og:description" content="{% trans "theater" %} | {% block site_og_description %}{% endblock %}">
+    <title>{% trans "Inad Theater" %} | {% block site_title %}{% endblock %}</title>
+    <meta property="og:title" content="{% trans "Inad Theater" %} | {% block site_og_title %}{% endblock %}">
+    <meta property="og:description"
+          content="{% trans "Inad Theater" %} | {% block site_og_description %}{% endblock %}">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:creator" content="@theater_MASTER_Official">
-    <meta name="twitter:site" content="@theater_MASTER_Official">
-    <meta name="twitter:label1" content="theater Team">
-    <meta name="twitter:data1" content=" theater Team">
+    <meta name="twitter:creator" content="@inadtheater">
+    <meta name="twitter:site" content="@inadtheater">
+    <meta name="twitter:label1" content="Inad Theater">
+    <meta name="twitter:data1" content="Inad Theater">
     <meta name="twitter:label2" content=" {% trans "Estimated reading time" %}: {% block reading_time %}{% endblock %}">
     <meta name="twitter:data2" content="2 Minutes">
     <link rel="canonical" href="{% block canonical %}{% endblock %}">
