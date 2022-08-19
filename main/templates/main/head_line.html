@@ -17,12 +17,12 @@
     <div class="container-fluid mt-5">
 
         <h1 class="text-center fs-1 font-bold mb-5">
-            {{ object|get_translation_data:'title' }}
+            {{ object.title }}
             <hr class="text-dark-red">
         </h1>
 
         <div data-wow-duration="2s" class="mb-5 wow fadeInUp p-3 card">
-            {{ object|get_translation_data:'content'|safe }}
+            {{ object.content|safe }}
 
         </div>
     </div>

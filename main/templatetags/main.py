@@ -25,7 +25,7 @@ def get_translation_data(object, field):
         Get translated fields
     """
     language_code = get_language()
-    field = field if language_code == 'en' else f'{language_code}_{field}'
+    field = field if language_code == 'en' else f'{field}_{language_code}'
     return getattr(object, f'{field}')
 
 

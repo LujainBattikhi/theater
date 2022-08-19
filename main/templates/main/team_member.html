@@ -14,14 +14,20 @@
     <!--==========================
       Production Section
     ============================-->
-    <h4 class="p-3 text-center fw-bolder card-title">{{ object|get_translation_data:'name' }}</h4>
+    <h4 class="p-3 text-center fw-bolder card-title">{{ object.name }}</h4>
 
     <div class="m-3 align-items-center text-center p-3 card">
         <img src="{{ object.image.url }}" width="300" height="300" class="img-thumbnail" alt="...">
         <div class="card-body">
-            <h5 class="p-3 card-text">{{ object|get_translation_data:'job_title' }}</h5>
+            <div class="d-flex justify-content-center flex-wrap flex-row">
+                {% for social_media in object.social_media_links.all %}
+                    <a class="footer-social-media" href="{{ social_media.url }}"><i
+                            class="p-3 fa-lg rounded-circle fa fa-{{ social_media.type }}"></i></a>
+                {% endfor %}
+            </div>
+            <h5 class="p-3 card-text">{{ object.job_title }}</h5>
             <hr>
-            <h5 class="p-3 card-text">{{ object|get_translation_data:'bio' }}</h5>
+            <h5 class="p-3 card-text">{{ object.bio }}</h5>
         </div>
     </div>
 

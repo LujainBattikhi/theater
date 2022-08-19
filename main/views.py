@@ -32,7 +32,7 @@ class ProductionListView(ListView):
         if slug and not self.object:
             messages.error(request,
                            _("Sorry!"),
-                           extra_tags=_("Package Not Found!"))
+                           extra_tags=_("Category Not Found!"))
             return redirect(reverse('main:main'))
         return super().dispatch(request, *args, **kwargs)
 

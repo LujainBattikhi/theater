@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-vboxl*4&%7*)c!p9al&a2cfa&q+9#n$fwvu=#&_9%e+b&mu#^j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["inadtheater.ps", "127.0.0.1", "localhost", ]
 
@@ -53,6 +53,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -140,6 +141,9 @@ LANGUAGES = (
     ('ar', _('Arabic')),
 )
 
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
 MULTILINGUAL_LANGUAGES = (
     "en",
     "ar",

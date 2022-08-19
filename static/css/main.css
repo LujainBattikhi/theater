@@ -1,6 +1,6 @@
 body {
     background-color: #f5f8fd;
-    font-family: 'RobotoCondensed-Regular', Arial, serif;
+    font-family: 'RobotoCondensed-Regular', 'Changa-Regular', Arial, serif;
     font-size: 16px;
     line-height: 18px;
     color: #777;
@@ -8,7 +8,7 @@ body {
 }
 
 .font-bold {
-    font-family: 'RobotoCondensed-Bold', Arial, serif;
+    font-family: 'RobotoCondensed-Bold', 'Changa-Bold', Arial, serif;
 
 }
 
@@ -204,7 +204,7 @@ footer {
 
 @media (min-width: 442px) {
     .main-wrapper {
-        min-height: calc(100vh - 260px);
+        min-height: calc(100vh - 215px);
     }
 }
 
@@ -338,4 +338,30 @@ footer {
 .page-number {
     background-color: #b02a2f !important;
     border-color: #b02a2f !important
+}
+
+.page-item:first-child .page-link {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.page-item:last-child .page-link {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.breadcrumb-item.bidi-True::after {
+    content: '/';
+    padding-right: 0.2rem;
+}
+
+.breadcrumb-item.bidi-False::after {
+    content: '/';
+    padding-left: 0.5rem;
+}
+
+.breadcrumb-item.active::after {
+    content: '';
+    padding-left: 0.5rem;
+
 }

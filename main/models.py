@@ -193,6 +193,29 @@ class TeamMember(BaseModel):
         return self.name
 
 
+class TeamMemberSocialMedia(models.Model):
+    TYPE_FACEBOOK = 'facebook'
+    TYPE_TWITTER = 'twitter'
+    TYPE_YOUTUBE = 'youtube'
+    TYPE_INSTAGRAM = 'instagram'
+    TYPE_WEBSITE = 'website'
+    TYPE_CHOICES = [
+        (TYPE_FACEBOOK, _('Facebook')),
+        (TYPE_TWITTER, _('Twitter')),
+        (TYPE_YOUTUBE, _('Youtube')),
+        (TYPE_INSTAGRAM, _('Instagram')),
+        (TYPE_WEBSITE, _('Website')),
+    ]
+    team_member = models.ForeignKey(TeamMember, related_name='social_media_links', on_delete=models.PROTECT, )
+    link = models.URLField()
+    type = models.CharField(
+        blank=True, null=False,
+        max_length=255,
+        choices=TYPE_CHOICES,
+        verbose_name=_('Type')
+    )
+
+
 class HeadLine(BaseModel):
     """
     HeadLine model
