@@ -1,7 +1,8 @@
+import pyqrcode
 from autoslug import AutoSlugField
 from ckeditor_uploader.fields import RichTextUploadingField
-
 from django.contrib.auth.models import User
+from django.contrib.sites.models import Site
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
@@ -132,8 +133,50 @@ class Production(BaseModel):
     def translatable_fields_list():
         return 'title', 'synopsis',
 
+    def get_qr_code(self):
+        site = Site.objects.first()
+        link = site.domain + reverse(
+            'main:production_program',
+            kwargs={'slug': self.slug}
+        )
+
+        url = pyqrcode.create(link)
+        return url.png_as_base64_str()
+
     def __str__(self):
         return self.title
+
+
+class ProductionEvent(BaseModel):
+    """
+    Production Event model
+    """
+    date = models.DateField(
+        blank=False, null=False,
+        verbose_name=_('Date'),
+    )
+    time = models.TimeField(
+        blank=False, null=False,
+        verbose_name=_('Time'),
+    )
+    place = models.CharField(
+        max_length=150,
+        blank=False, null=False,
+        verbose_name=_('Place'),
+    )
+    title = models.CharField(
+        max_length=150,
+        blank=False, null=False,
+        verbose_name=_('Title'),
+    )
+    production = models.ForeignKey(
+        Production, null=False,
+        related_name='events', on_delete=models.PROTECT,
+    )
+
+    @staticmethod
+    def translatable_fields_list():
+        return 'place', 'title'
 
 
 class ProductionImage(models.Model):

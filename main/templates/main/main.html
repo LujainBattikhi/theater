@@ -11,39 +11,40 @@
 
 
 {% block content %}
-    <h1 class="text-center fs-1 font-bold mb-5">
-        {% trans 'Inad Theater Latest Productions' %}
-        <hr class="text-dark-red">
-    </h1>
+    {% if featured_productions %}
+        <h1 class="text-center fs-1 font-bold mb-5">
+            {% trans 'Inad Theater Latest Productions' %}
+            <hr class="text-dark-red">
+        </h1>
 
-    <!--==========================
-            Featured Productions Section
-    ============================-->
-    <section id="productions">
-        <div class="wow fadeInUp  row justify-content-center">
-            <div class="col-lg-9">
-                <div class="owl-carousel text-center main-carousel">
-                    {% for featured_production in featured_productions %}
-                        <div class="card me-3 " style="height: 25rem;">
-                            <img height="200" src="{{ featured_production.image.url }}" class="card-img-top"
-                                 alt="{{ featured_production.title }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ featured_production.title }}</h5>
-                                <p class="card-text">
-                                    {{ featured_production.synopsis|truncatechars:50|safe }}
-                                </p>
-                                <a href="{{ featured_production.get_absolute_url }}"
-                                   class="read-more btn btn-outline-dark-red">
-                                    {% trans 'Read More' %}
-                                </a>
+        <!--==========================
+                Featured Productions Section
+        ============================-->
+        <section id="productions">
+            <div class="wow fadeInUp  row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="owl-carousel text-center main-carousel">
+                        {% for featured_production in featured_productions %}
+                            <div class="card me-3 " style="height: 25rem;">
+                                <img height="200" src="{{ featured_production.image.url }}" class="card-img-top"
+                                     alt="{{ featured_production.title }}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ featured_production.title }}</h5>
+                                    <p class="card-text">
+                                        {{ featured_production.synopsis|truncatechars:50|safe }}
+                                    </p>
+                                    <a href="{{ featured_production.get_absolute_url }}"
+                                       class="read-more btn btn-outline-dark-red">
+                                        {% trans 'Read More' %}
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                    {% endfor %}
+                        {% endfor %}
+                    </div>
+
                 </div>
 
             </div>
-
-        </div>
-    </section>
-
+        </section>
+    {% endif %}
 {% endblock %}

@@ -30,16 +30,8 @@
        data-raw="https://www.linkedin.com/shareArticle?mini=true&amp;url={post_full_link}&amp;title={post_title}">
         <i class="fa  fa-lg fa-linkedin-square shared-icon"></i>
     </a>
-    <a data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans 'Pinterest' %}"
-       href="https://pinterest.com/pin/create/button/?url={{ host }}://{{ request.get_host }}{{ url_name }}&amp;description={{ description }}&amp;media=https://i2.wp.com/medteb.com/wp-content/uploads/2021/04/MedTeb-Template-11.jpg?fit=1200%2C800&amp;ssl=1"
-       rel="external noopener nofollow" target="_blank"
-       class=" mb-2 mx-2 share-links btn text-light shared-icon-background-pinterest"
-       data-raw="https://pinterest.com/pin/create/button/?url={post_link}&amp;description={post_title}&amp;media={post_img}">
-        <i class="fa  fa-lg fa-pinterest-square shared-icon"></i>
-
-    </a>
     <a data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans 'Messanger' %}"
-       href="https://www.facebook.com/dialog/send?app_id=5303202981&amp;display=popup&amp;link={{ host }}://{{ request.get_host }}{{ url_name }}&amp;redirect_uri={{ host }}://{{ request.get_host }}{{ url_name }}"
+       href="https://www.facebook.com/dialog/send?display=popup&amp;link={{ host }}://{{ request.get_host }}{{ url_name }}&amp;redirect_uri={{ host }}://{{ request.get_host }}{{ url_name }}"
        rel="external noopener nofollow"
        target="_blank"
        class=" mb-2 mx-2 share-links btn text-light shared-icon-background-messenger"

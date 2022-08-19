@@ -216,6 +216,10 @@ footer {
     .main-wrapper {
         min-height: calc(100vh - 240px);
     }
+
+    .nav-tabs .nav-item {
+        width: 100%;
+    }
 }
 
 .no-gutters > .col, .no-gutters > [class*="col-"] {
@@ -370,6 +374,9 @@ footer {
 
 }
 
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    background-color: #f5f8fd;
+}
 /* coming soon*/
 .loader {
     width: 20vw;

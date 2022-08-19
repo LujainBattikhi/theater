@@ -5,7 +5,7 @@ from django import forms
 from django.contrib import admin
 
 from main.models import Category, SubCategory, Production, TeamMember, HeadLine, AnnualReport, NetworkPartner, \
-    ProductionImage, TeamMemberSocialMedia
+    ProductionImage, TeamMemberSocialMedia, ProductionEvent
 
 admin.site.register(Category)
 admin.site.register(SubCategory)
@@ -19,8 +19,13 @@ class ProductionImageInline(admin.TabularInline):
     max_num = 20
 
 
+class ProductionEventInline(admin.TabularInline):
+    model = ProductionEvent
+    extra = 3
+
+
 class ProductionAdmin(admin.ModelAdmin):
-    inlines = [ProductionImageInline, ]
+    inlines = [ProductionImageInline, ProductionEventInline]
 
 
 admin.site.register(Production, ProductionAdmin)
