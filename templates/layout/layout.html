@@ -4,7 +4,8 @@
 
 {% block base_content %}
 
-    <div style="margin-top: 5rem" class="d-flex card p-3 container justify-content-center align-items-center flex-wrap flex-column ">
+    <div style="margin-top: 5rem"
+         class="d-flex card p-3 {% if hide_coming_soon %}d-none{% endif %} container justify-content-center align-items-center flex-wrap flex-column ">
         <img class="bg-white img-fluid " width="110" src="{% static 'images/logo.png' %}">
 
         <svg style="margin-top: 2rem" class="loader" viewBox="0 0 100 100">
@@ -18,15 +19,15 @@
             coming soon!
         </h2>
         <h2 dir="rtl" class="font-bold text-dark-red text-center text-uppercase">
-           الموقع قيد التطوير...
+            الموقع قيد التطوير...
         </h2>
     </div>
-    <div class="d-none">
+    <div class="{% if not hide_coming_soon %}d-none{% endif %}">
 
         {% include "layout/_header.html" %}
 
         <div class="mb-0 container main-wrapper">
-            <nav class="navbar navbar-light bg-light">
+            <nav class="navbar {% if coming_soon %}d-none {% endif %} navbar-light bg-light">
                 <form action="{% url 'main:sub_category_details' %}" class="d-flex container-fluid">
                     <div class="p-2 me-3 input-group">
                         <button id="buttonSubmit" value="submit" class="input-group-text"><i

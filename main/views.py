@@ -91,6 +91,8 @@ class ProductionEventListView(ListView):
         context['production'] = self.object_list.first().production
         context['available_dates'] = self.available_dates
         context['active_date'] = self.date
+        context['hide_coming_soon'] = True
+        context['show_languages'] = True
         return context
 
 

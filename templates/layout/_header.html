@@ -5,14 +5,14 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'main:main' %}">
-            <img width="70" height="100" src="{% static 'images/header_logo.png' %}"></a>
+        <a class="navbar-brand {% if not show_languages %} d-none {% endif %}" href="{% url 'main:main' %}">
+            <img width="70" height="100" src="{% static 'images/logo.png' %}"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 {% if coming_soon %}d-none {% endif %} ">
                 <li class="nav-item  me-auto ">
                     <a class=" font-bold text-dark-red nav-link" aria-current="page"
                        href="{% url 'main:main' %}">{% trans 'Home' %}</a>
@@ -74,7 +74,7 @@
                        href="{% url 'main:contact_us' %}">  {% trans 'Contact Us' %}</a>
                 </li>
             </ul>
-            <div class="mx-2 dropdown">
+            <div class="mx-2 {% if not show_languages %} d-none {% endif %} dropdown">
                 <button class="btn btn-outline-dark-red dropdown-toggle" type="button" id="dropdownMenuButton1"
                         data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-language me-1"></i> {{ lang.name_local }}
