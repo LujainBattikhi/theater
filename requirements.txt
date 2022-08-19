@@ -11,4 +11,3 @@ gunicorn
 psycopg2-binary==2.8.6
 dj-database-url
 django-ckeditor
-django-jazzmin
