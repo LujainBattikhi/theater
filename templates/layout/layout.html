@@ -4,29 +4,40 @@
 
 {% block base_content %}
 
-    {% include "layout/_header.html" %}
-
-
-    <div class="mb-0 container main-wrapper">
-        <nav class="navbar navbar-light bg-light">
-            <form action="{% url 'main:sub_category_details' %}" class="d-flex container-fluid">
-                <div class="p-2 me-3 input-group">
-                    <button id="buttonSubmit" value="submit" class="input-group-text"><i
-                            class="fa  text-dark-red fa-search"></i></button>
-                    <input class="form-control p-2 " name="search" type="search" placeholder="{% trans 'Search' %}"
-                           aria-label="Search">
-
-                </div>
-            </form>
-        </nav>
-        {% include "layout/_messages.html" %}
-        <div class="main-content-wrapper container-fluid mt-5">
-
-            {% block content %}
-            {% endblock %}
-        </div>
+    <div class="d-flex justify-content-center align-items-center flex-wrap flex-column mt-4">
+        <img class="bg-white img-fluid " width="400" src="{% static 'images/logo.png' %}">
+        <h1 class="text-dark-red m-4  p-5 text-center text-uppercase">
+            coming soon!
+        </h1>
+        <h1 class="text-dark-red text-center text-uppercase">
+            !قريباً
+        </h1>
     </div>
-    <div id='toTop'><i class="fa fa-2x text-dark-red btn fa-arrow-circle-o-up"></i></div>
-    {% include "layout/_footer.html" %}
+    <div class="d-none">
 
+        {% include "layout/_header.html" %}
+
+        <div class="mb-0 container main-wrapper">
+            <nav class="navbar navbar-light bg-light">
+                <form action="{% url 'main:sub_category_details' %}" class="d-flex container-fluid">
+                    <div class="p-2 me-3 input-group">
+                        <button id="buttonSubmit" value="submit" class="input-group-text"><i
+                                class="fa  text-dark-red fa-search"></i></button>
+                        <input class="form-control p-2 " name="search" type="search" placeholder="{% trans 'Search' %}"
+                               aria-label="Search">
+
+                    </div>
+                </form>
+            </nav>
+            {% include "layout/_messages.html" %}
+            <div class="main-content-wrapper container-fluid mt-5">
+
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+        <div id='toTop'><i class="fa fa-2x text-dark-red btn fa-arrow-circle-o-up"></i></div>
+        {% include "layout/_footer.html" %}
+
+    </div>
 {% endblock %}
