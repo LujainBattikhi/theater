@@ -70,7 +70,7 @@ class ProductionDetails(DetailView):
 
 
 class ProductionEventListView(ListView):
-    template_name = 'main/production_program.html'
+    template_name = 'main/production_event.html'
     model = ProductionEvent
 
     def dispatch(self, request, *args, **kwargs):
