@@ -31,7 +31,7 @@
                     <a class="p-3 text-dark-red nav-link {% if active_date == date|date:'Y-m-d' or active_date == date %}active{% endif %}"
                        id="{{ date }}-tab"
                        href="{% url 'main:production_program' production.slug %}?date={{ date|date:'Y-m-d' }}"
-                       role="tab" aria-controls="{{ date }}" aria-selected="true">{{ date }}
+                       role="tab" aria-controls="{{ date }}" aria-selected="true">{{ date|date:'l Y-m-d' }}
                     </a>
                 </li>
             {% endfor %}

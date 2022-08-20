@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-19 02:05+0000\n"
+"POT-Creation-Date: 2022-08-20 10:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -537,25 +537,25 @@ msgid "noon"
 msgstr ""
 
 msgid "Monday"
-msgstr ""
+msgstr "الاثنين"
 
 msgid "Tuesday"
-msgstr ""
+msgstr "الثلاثاء"
 
 msgid "Wednesday"
-msgstr ""
+msgstr "الأربعاء"
 
 msgid "Thursday"
-msgstr ""
+msgstr "الخميس"
 
 msgid "Friday"
-msgstr ""
+msgstr "الجمعة"
 
 msgid "Saturday"
-msgstr ""
+msgstr "السّبت"
 
 msgid "Sunday"
-msgstr ""
+msgstr "الأحد"
 
 msgid "Mon"
 msgstr ""
@@ -954,6 +954,12 @@ msgstr ""
 msgid "Cover Photo"
 msgstr ""
 
+msgid "Date"
+msgstr ""
+
+msgid "Place"
+msgstr ""
+
 msgid "Gallery"
 msgstr "الصور"
 
@@ -1083,14 +1089,17 @@ msgstr "واتساب"
 msgid "Linkedin"
 msgstr "لينكدان"
 
-msgid "Pinterest"
-msgstr "بينتيريست"
-
 msgid "Messanger"
 msgstr "ماسنجر"
 
-msgid "Publish Date"
-msgstr "تاريخ النشر"
+msgid "Events"
+msgstr "فعاليات"
+
+msgid "Photo Gallery"
+msgstr "الصور"
+
+msgid "News & Reviews"
+msgstr "أخبار ومراجعات"
 
 msgid "Productions"
 msgstr "الإنتاج"
@@ -1160,3 +1169,9 @@ msgstr "إنجليزي"
 
 msgid "Arabic"
 msgstr "عربي"
+
+#~ msgid "Pinterest"
+#~ msgstr "بينتيريست"
+
+#~ msgid "Publish Date"
+#~ msgstr "تاريخ النشر"
