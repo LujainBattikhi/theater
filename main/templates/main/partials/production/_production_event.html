@@ -1,0 +1,35 @@
+{% load crispy_forms_tags static i18n main %}
+
+<h3 id="events" class="text-center mt-5 font-bold mb-5">
+    <hr class="text-dark-red">
+</h3>
+<div class="h5 card">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" id="myProgram" role="tablist">
+        {% for date in available_dates %}
+            <li class="bg-gray nav-item" role="program">
+                <a class="p-3 text-dark-red nav-link {% if active_date == date|date:'Y-m-d' or active_date == date %}active{% endif %}"
+                   id="{{ date }}-tab"
+                   href="{% url 'main:production_details' production.slug %}?date={{ date|date:'Y-m-d' }}"
+                   role="tab" aria-controls="{{ date }}" aria-selected="true">{{ date|date:'l Y-m-d' }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        {% for object in object_list %}
+            <div class="border-bottom rounded-1 p-1 events-row text-center text-dark-red col-12">
+                {{ object.title }}
+            </div>
+            <div style="background: #f5f8fd; margin: 0"
+                 class="border-bottom rounded-1 p-1 events-row text-center  col-12 row">
+                <div class="col-6">
+                    <i class="fa  fa-clock-o"></i> {{ object.time|date:'h:i A' }} </div>
+                <div class=" col-6">
+                    <i class="fa  fa-map-marker"></i> {{ object.place }} </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+</div>

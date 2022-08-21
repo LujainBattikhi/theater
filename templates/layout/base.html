@@ -1,12 +1,13 @@
-{% load static %}
-{% load i18n %}
-{% load compress %}
+{% load static i18n compress %}
 
+{% get_language_info_list for available_languages as languages %}
+{% get_current_language as CURRENT_LANGUAGE %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
-{% get_current_language as LANGUAGE_CODE %}
+{% get_language_info for CURRENT_LANGUAGE as lang %}
 
 <!DOCTYPE html>
-<html lang="{{ LANGUAGE_CODE|default:"en" }}" {% if LANGUAGE_BIDI %}dir="rtl" {% else %}dir="ltr"{% endif %}
+<html lang="{{ CURRENT_LANGUAGE|default:"en" }}"
+      {% if LANGUAGE_BIDI %}dir="rtl" {% else %}dir="ltr"{% endif %}
       style="overflow-x: hidden;">
 <head>
     <meta charset="utf-8">

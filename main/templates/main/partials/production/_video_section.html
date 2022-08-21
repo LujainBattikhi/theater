@@ -1,0 +1,12 @@
+{% load static i18n %}
+
+{% if object.link %}
+    <section id="video" class="text-center mt-5">
+        <div class="wow fadeInUp">
+            <iframe style="width: 80%;" height="400" src="{{ object.link }}"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </div>
+    </section>
+{% endif %}

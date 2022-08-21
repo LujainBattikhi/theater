@@ -1,0 +1,23 @@
+{% load static i18n %}
+
+{% if news %}
+    <h3 class="text-center mt-5 font-bold mb-5">
+        {% trans 'News & Reviews' %}
+        <hr class="text-dark-red">
+    </h3>
+    <section id="news">
+        <div class="wow fadeInUp  row justify-content-center">
+            <div class="col-lg-9">
+                <div class="owl-carousel text-center news">
+                    {% for production_image in news %}
+                        <img height="200" data-src="{{ production_image.image.url }}"
+                             class="p-2 owl-lazy card-img-top"
+                             alt="{{ object.title }}">
+                    {% endfor %}
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+{% endif %}
