@@ -43,7 +43,7 @@
     </div>
     <hr class="text-dark-red">
 
-    <div class="m-3 align-items-center text-center p-3">
+    <div class="text-center align-items-center">
         {#        <nav style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb">#}
         {#            <ol class="justify-content-center breadcrumb">#}
         {#                <li class="breadcrumb-item bidi-{{ LANGUAGE_BIDI }}">#}
@@ -57,15 +57,16 @@
         {#                <li class="breadcrumb-item bidi-{{ LANGUAGE_BIDI }} active" aria-current="page">{{ object.title }}</li>#}
         {#            </ol>#}
         {#        </nav>#}
-        <img src="{{ object.image.url }}" style="width: 30rem;" class="img-thumbnail" alt="{{ object.title }}">
-        <div class="w-100 card-body">
-            {#            {% include 'main/partials/share_social_media.html' with url_name=object.get_absolute_url  description=object.title %}#}
+        <img src="{{ object.image.url }}" style="width: 40rem;" class="img-thumbnail" alt="{{ object.title }}">
+        {% if object.synopsis %}
+            <div class="w-100 card-body">
+                {#            {% include 'main/partials/share_social_media.html' with url_name=object.get_absolute_url  description=object.title %}#}
 
-            {% if object.synopsis %}
                 <hr>
                 <h5 class="p-3 card-text">{{ object.synopsis|safe }}</h5>
-            {% endif %}
-        </div>
+            </div>
+        {% endif %}
+
     </div>
 
     <!--==========================

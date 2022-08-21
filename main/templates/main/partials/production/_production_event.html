@@ -23,11 +23,11 @@
                 {{ object.title }}
             </div>
             <div style="background: #f5f8fd; margin: 0"
-                 class="border-bottom rounded-1 p-1 events-row text-center  col-12 row">
+                 class="border-bottom rounded-1 events-row text-center  col-12 row">
                 <div class="col-6">
-                    <i class="fa  fa-clock-o"></i> {{ object.time|date:'h:i A' }} </div>
-                <div class=" col-6">
                     <i class="fa  fa-map-marker"></i> {{ object.place }} </div>
+                <div class=" col-6">
+                    <i class="fa  fa-clock-o"></i> {{ object.time|date:'h:i A' }} </div>
             </div>
         {% endfor %}
     </div>
