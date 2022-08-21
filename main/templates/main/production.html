@@ -18,7 +18,7 @@
     ============================-->
     <div id="productionHeader" class="mt-4 d-flex">
         <img width="70" height="100" class=" mt-2" src="{% static 'images/logo.png' %}">
-        <div class="text-dark-red text-center production-header font-bold h3"> {% trans 'Al Makhrour Festival Program' %}</div>
+        <div class="text-dark-red text-center production-header font-bold h3"> {{ object.title }}</div>
 
         <div class="mx-2 production-header dropdown">
             <button class="btn btn-outline-dark-red dropdown-toggle" type="button" id="dropdownMenuButton1"
