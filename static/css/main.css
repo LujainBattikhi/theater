@@ -221,6 +221,12 @@ footer {
     .events-row {
         padding: 1.5rem !important;
     }
+
+    .events-details {
+        padding: 1.5rem !important;
+        font-size: 1.25rem !important;
+
+    }
 }
 
 @media (max-width: 992px) {
@@ -238,12 +244,18 @@ footer {
     .events-row {
         padding: 0.5rem !important;
     }
+
     .production-header {
         margin-top: 1.5rem !important;
     }
 
     .nav-tabs .nav-item {
         width: 100%;
+    }
+
+    .events-details {
+        padding: 0.5rem !important;
+        font-size: 1rem !important;
     }
 
 }
