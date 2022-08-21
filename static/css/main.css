@@ -218,11 +218,11 @@ footer {
 
     }
 
-}
-
     .events-row {
         padding: 1.5rem !important;
     }
+}
+
 @media (max-width: 992px) {
     .main-wrapper {
         min-height: calc(100vh - 240px);
@@ -235,6 +235,9 @@ footer {
 
     }
 
+    .events-row {
+        padding: 0.5rem !important;
+    }
     .production-header {
         margin-top: 1.5rem !important;
     }
