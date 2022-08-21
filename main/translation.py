@@ -22,7 +22,7 @@ translator.register(SubCategory, CategoryTranslationOptions)
 
 class ProductionTranslationOptions(TranslationOptions):
     fields = Production.translatable_fields_list()
-    required_languages = MODELTRANSLATION_LANGUAGES
+    required_languages = {'default': ('title',)}
 
 
 translator.register(Production, ProductionTranslationOptions)

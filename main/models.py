@@ -62,7 +62,7 @@ class SubCategory(BaseModel):
         null=False,
         blank=False,
         on_delete=models.PROTECT,
-        verbose_name=_("Sub Category"),
+        verbose_name=_("Category"),
         related_name='sub_categories'
     )
     is_active = models.BooleanField(
@@ -94,8 +94,9 @@ class Production(BaseModel):
         blank=False, null=False,
         verbose_name=_('Title'),
     )
-    synopsis = RichTextUploadingField(
-        blank=False, null=False,
+    synopsis = models.TextField(
+        blank=True, null=True,
+        default='',
         verbose_name=_('Synopsis'),
     )
     sub_category = models.ForeignKey(
@@ -107,6 +108,8 @@ class Production(BaseModel):
         related_name='productions'
     )
     link = models.URLField(
+        null=True,
+        blank=True,
         verbose_name=_('Embed Youtube Link'),
     )
     publish_date = models.DateField(

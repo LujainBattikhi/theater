@@ -61,8 +61,8 @@
         <div class="w-100 card-body">
             {#            {% include 'main/partials/share_social_media.html' with url_name=object.get_absolute_url  description=object.title %}#}
 
-            <hr>
             {% if object.synopsis %}
+                <hr>
                 <h5 class="p-3 card-text">{{ object.synopsis|safe }}</h5>
             {% endif %}
         </div>
