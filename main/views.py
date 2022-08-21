@@ -69,7 +69,7 @@ class ProductionDetails(DetailView):
         events = self.object.events.all()
         available_dates = events.values_list('date', flat=True).distinct()
         date = self.request.GET.get('date', None) or available_dates.first()
-        production_events = events.filter(date=date).distinct()
+        production_events = events.filter(date=date).order_by('time').distinct()
         context['production_events'] = production_events
         context['available_dates'] = available_dates
         context['active_date'] = date
