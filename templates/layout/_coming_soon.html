@@ -1,0 +1,19 @@
+{% load crispy_forms_tags i18n static %}
+<div style="margin-top: 5rem"
+     class="d-flex card p-3 {% if hide_coming_soon_page %}d-none{% endif %} container justify-content-center align-items-center flex-wrap flex-column ">
+    <img class="bg-white img-fluid " width="110" src="{% static 'images/logo.png' %}">
+
+    <svg style="margin-top: 2rem" class="loader" viewBox="0 0 100 100">
+        <g class="points">
+            <circle class="ciw" cx="50" cy="50" r="50" fill="#fff"/>
+            <circle class="ci2" cx="5" cy="50" fill="#6d6e70" r="4"/>
+            <circle class="ci1" cx="95" cy="50" fill="#b02a2f" r="4"/>
+        </g>
+    </svg>
+    <h2 style="margin-top: 1rem" class="pt-2 font-bold text-dark-gray text-center text-uppercase">
+        coming soon!
+    </h2>
+    <h2 dir="rtl" class="font-bold text-dark-red text-center text-uppercase">
+        الموقع قيد التطوير...
+    </h2>
+</div>

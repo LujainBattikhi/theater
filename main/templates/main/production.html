@@ -1,5 +1,6 @@
 {% extends 'layout/layout.html' %}
-{% load crispy_forms_tags static i18n main %}
+{% load crispy_forms_tags i18n static main %}
+
 {% block og_image %} {% static 'images/logo.png' %}  {% endblock %}
 {% block site_title %} {{ object.title }} {% endblock %}
 {% block site_og_title %}{{ object.title }} {% endblock %}
@@ -8,112 +9,82 @@
 {% block canonical %}{{ request.build_absolute_uri }}{% endblock %}
 {% block keywords %}{{ object.title }}{% endblock %}
 {% block reading_time %}{{ object.reading_time|default:2 }}{% endblock %}
-{% get_current_language_bidi as LANGUAGE_BIDI %}
-
 
 
 {% block content %}
+
     <!--==========================
       Production Section
     ============================-->
+    <div id="productionHeader" class="mt-4 d-flex">
+        <img width="70" height="100" class=" mt-2" src="{% static 'images/logo.png' %}">
+        <div class="text-dark-red text-center production-header font-bold h3"> {% trans 'Al Makhrour Festival Program' %}</div>
 
-    <h1 class="text-center fs-1 font-bold mb-5">
-        {{ object.title }}
-        <hr class="text-dark-red">
-    </h1>
+        <div class="mx-2 production-header dropdown">
+            <button class="btn btn-outline-dark-red dropdown-toggle" type="button" id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-language me-1"></i>
+                {{ lang.name_local }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                {% for language in languages %}
 
-    <div class="m-3 align-items-center text-center p-3 card">
-        <nav style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb">
-            <ol class="justify-content-center breadcrumb">
-                <li class="breadcrumb-item bidi-{{ LANGUAGE_BIDI }}">
-                    <a href="/">{% trans 'Home' %}</a>
-                </li>
-                <li class="breadcrumb-item bidi-{{ LANGUAGE_BIDI }}">
-                    <a href="{{ object.sub_category.get_absolute_url }}">{{ object.sub_category }}</a>
-                </li>
-                <li class="breadcrumb-item bidi-{{ LANGUAGE_BIDI }} active" aria-current="page">{{ object.title }}</li>
-            </ol>
-        </nav>
-        <img src="{{ object.image.url }}" width="500" height="500" class="img-thumbnail" alt="...">
-        <div class="w-100 card-body">
-            {% include 'main/partials/share_social_media.html' with url_name=object.get_absolute_url  description=object.title %}
-            <h5 class="card-text text-start">
-                <i class="fa fa-lg mx-2 fa-calendar"></i> {{ object.created_at|date:'' }}
-            </h5>
-            {% if  object.events.all %}
-                <h5 class="card-text text-end">
-                    <a href="{% url 'main:production_program' object.slug %}" class="btn btn-outline-dark-red">
-                        {% trans 'Events' %}
-                        <i class="mx-1 fa fa-list"></i>
+                    {% if language.code != CURRENT_LANGUAGE %}
+                        <li class="p-2 text-center">
+                            <a href="/{{ language.code }}/{{ request.get_full_path|slice:"4:" }}">
+                                {{ language.name_local }}
 
-                    </a>
-                </h5>
-            {% endif %}
-            <hr>
-            <h5 class="p-3 card-text">{{ object.synopsis|safe }}</h5>
+                            </a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
         </div>
     </div>
+    <hr class="text-dark-red">
+
+    <div class="m-3 align-items-center text-center p-3 card">
+        {#        <nav style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb">#}
+        {#            <ol class="justify-content-center breadcrumb">#}
+        {#                <li class="breadcrumb-item bidi-{{ LANGUAGE_BIDI }}">#}
+        {#                                        <a href="/">{% trans 'Home' %}</a>#}
+        {#                    <a>{% trans 'Home' %}</a>#}
+        {#                </li>#}
+        {#                <li class="breadcrumb-item bidi-{{ LANGUAGE_BIDI }}">#}
+        {#                                        <a href="{{ object.sub_category.get_absolute_url }}">{{ object.sub_category }}</a>#}
+        {#                    <a>{{ object.sub_category }}</a>#}
+        {#                </li>#}
+        {#                <li class="breadcrumb-item bidi-{{ LANGUAGE_BIDI }} active" aria-current="page">{{ object.title }}</li>#}
+        {#            </ol>#}
+        {#        </nav>#}
+        <img src="{{ object.image.url }}" style="width: 30rem;" class="img-thumbnail" alt="{{ object.title }}">
+        <div class="w-100 card-body">
+            {#            {% include 'main/partials/share_social_media.html' with url_name=object.get_absolute_url  description=object.title %}#}
+
+            {% if object.synopsis %}
+                <hr>
+                <h5 class="p-3 card-text">{{ object.synopsis|safe }}</h5>
+            {% endif %}
+        </div>
+    </div>
+
+    <!--==========================
+            Event Section
+    ============================-->
+    {% include 'main/partials/production/_production_event.html' with object_list=production_events %}
+
     <!--==========================
             Video Section
     ============================-->
-    {% if object.link %}
-        <section id="video">
-            <div class="wow fadeInUp">
-                <iframe style="width: 100%;" height="400" src="{{ object.link }}"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-            </div>
-        </section>
-    {% endif %}
+    {% include 'main/partials/production/_video_section.html' %}
     <!--==========================
             Gallery Section
     ============================-->
-    {% if gallery %}
-        <h3 class="text-center mt-5 font-bold mb-5">
-            {% trans 'Photo Gallery' %}
-            <hr class="text-dark-red">
-        </h3>
-        <section id="gallery">
-            <div class="wow fadeInUp  row justify-content-center">
-                <div class="col-lg-9">
-                    <div class="owl-carousel text-center gallery">
-                        {% for production_image in gallery %}
-                            <img height="200" data-src="{{ production_image.image.url }}"
-                                 class="p-2 owl-lazy card-img-top"
-                                 alt="{{ object.title }}">
-                        {% endfor %}
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-    {% endif %}
-
+    {% include 'main/partials/production/_gallery_section.html' %}
     <!--==========================
             News Section
     ============================-->
-    {% if news %}
-        <h3 class="text-center mt-5 font-bold mb-5">
-            {% trans 'News & Reviews' %}
-            <hr class="text-dark-red">
-        </h3>
-        <section id="news">
-            <div class="wow fadeInUp  row justify-content-center">
-                <div class="col-lg-9">
-                    <div class="owl-carousel text-center news">
-                        {% for production_image in news %}
-                            <img height="200" data-src="{{ production_image.image.url }}"
-                                 class="p-2 owl-lazy card-img-top"
-                                 alt="{{ object.title }}">
-                        {% endfor %}
-                    </div>
+    {% include 'main/partials/production/_news_section.html' %}
 
-                </div>
-
-            </div>
-        </section>
-    {% endif %}
-
+    <img class="wow fadeInUp img-fluid card my-4" src="{{ object.partners_image.url }}">
 {% endblock %}

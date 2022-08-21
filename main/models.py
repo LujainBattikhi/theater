@@ -1,4 +1,3 @@
-import pyqrcode
 from autoslug import AutoSlugField
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib.auth.models import User
@@ -63,7 +62,7 @@ class SubCategory(BaseModel):
         null=False,
         blank=False,
         on_delete=models.PROTECT,
-        verbose_name=_("Sub Category"),
+        verbose_name=_("Category"),
         related_name='sub_categories'
     )
     is_active = models.BooleanField(
@@ -95,8 +94,9 @@ class Production(BaseModel):
         blank=False, null=False,
         verbose_name=_('Title'),
     )
-    synopsis = RichTextUploadingField(
-        blank=False, null=False,
+    synopsis = models.TextField(
+        blank=True, null=True,
+        default='',
         verbose_name=_('Synopsis'),
     )
     sub_category = models.ForeignKey(
@@ -108,7 +108,9 @@ class Production(BaseModel):
         related_name='productions'
     )
     link = models.URLField(
-        verbose_name=_('Link'),
+        null=True,
+        blank=True,
+        verbose_name=_('Embed Youtube Link'),
     )
     publish_date = models.DateField(
         blank=True, null=True, verbose_name=_('Publish At'), db_index=True
@@ -118,6 +120,12 @@ class Production(BaseModel):
         blank=False,
         verbose_name=_("Cover Photo"),
         upload_to='covers'
+    )
+    partners_image = models.ImageField(
+        null=True,
+        blank=True,
+        verbose_name=_("Partners Photo"),
+        upload_to='partners'
     )
 
     slug = AutoSlugField(
@@ -131,17 +139,7 @@ class Production(BaseModel):
 
     @staticmethod
     def translatable_fields_list():
-        return 'title', 'synopsis',
-
-    def get_qr_code(self):
-        site = Site.objects.first()
-        link = site.domain + reverse(
-            'main:production_program',
-            kwargs={'slug': self.slug}
-        )
-
-        url = pyqrcode.create(link)
-        return url.png_as_base64_str()
+        return 'synopsis', 'title',
 
     def __str__(self):
         return self.title
@@ -173,6 +171,9 @@ class ProductionEvent(BaseModel):
         Production, null=False,
         related_name='events', on_delete=models.PROTECT,
     )
+
+    class Meta:
+        ordering = ['date', ]
 
     @staticmethod
     def translatable_fields_list():

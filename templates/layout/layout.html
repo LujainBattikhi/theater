@@ -4,49 +4,41 @@
 
 {% block base_content %}
 
-    <div style="margin-top: 5rem"
-         class="d-flex card p-3 {% if hide_coming_soon %}d-none{% endif %} container justify-content-center align-items-center flex-wrap flex-column ">
-        <img class="bg-white img-fluid " width="110" src="{% static 'images/logo.png' %}">
+    {% if activate_coming_soon %}
+        {% include "layout/_coming_soon.html" %}
+    {% endif %}
+    {% if hide_coming_soon_page %}
+        <div>
+            {% if not activate_coming_soon %}
+                {% include "layout/_header.html" %}
+            {% endif %}
 
-        <svg style="margin-top: 2rem" class="loader" viewBox="0 0 100 100">
-            <g class="points">
-                <circle class="ciw" cx="50" cy="50" r="50" fill="#fff"/>
-                <circle class="ci2" cx="5" cy="50" fill="#6d6e70" r="4"/>
-                <circle class="ci1" cx="95" cy="50" fill="#b02a2f" r="4"/>
-            </g>
-        </svg>
-        <h2 style="margin-top: 1rem" class="pt-2 font-bold text-dark-gray text-center text-uppercase">
-            coming soon!
-        </h2>
-        <h2 dir="rtl" class="font-bold text-dark-red text-center text-uppercase">
-            الموقع قيد التطوير...
-        </h2>
-    </div>
-    <div class="{% if not hide_coming_soon %}d-none{% endif %}">
+            <div class="mb-0 container main-wrapper">
+                {% if activate_coming_soon %}
+                    <nav class="navbar d-none  navbar-light bg-light">
+                        <form action="{% url 'main:sub_category_details' %}" class="d-flex container-fluid">
+                            <div class="p-2 me-3 input-group">
+                                <button id="buttonSubmit" value="submit" class="input-group-text"><i
+                                        class="fa  text-dark-red fa-search"></i></button>
+                                <input class="form-control p-2 " name="search" type="search"
+                                       placeholder="{% trans 'Search' %}"
+                                       aria-label="Search">
 
-        {% include "layout/_header.html" %}
-
-        <div class="mb-0 container main-wrapper">
-            <nav class="navbar {% if coming_soon %}d-none {% endif %} navbar-light bg-light">
-                <form action="{% url 'main:sub_category_details' %}" class="d-flex container-fluid">
-                    <div class="p-2 me-3 input-group">
-                        <button id="buttonSubmit" value="submit" class="input-group-text"><i
-                                class="fa  text-dark-red fa-search"></i></button>
-                        <input class="form-control p-2 " name="search" type="search" placeholder="{% trans 'Search' %}"
-                               aria-label="Search">
-
-                    </div>
-                </form>
-            </nav>
-            {% include "layout/_messages.html" %}
-            <div class="main-content-wrapper container-fluid mt-5">
-
-                {% block content %}
-                {% endblock %}
+                            </div>
+                        </form>
+                    </nav>
+                {% endif %}
+                {% include "layout/_messages.html" %}
+                <div class="main-content-wrapper container-fluid">
+                    {% block content %}
+                    {% endblock %}
+                </div>
             </div>
-        </div>
-        <div id='toTop'><i class="fa fa-2x text-dark-red btn fa-arrow-circle-o-up"></i></div>
-        {% include "layout/_footer.html" %}
+            <div id='toTop'><i class="fa fa-2x text-dark-red btn fa-arrow-circle-o-up"></i></div>
+            {% if not activate_coming_soon %}
+                {% include "layout/_footer.html" %}
+            {% endif %}
 
-    </div>
+        </div>
+    {% endif %}
 {% endblock %}

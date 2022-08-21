@@ -16,8 +16,7 @@ Including another URLconf
 from django.urls import path
 
 from main.views import Main, ProductionListView, ProductionDetails, TeamList, TeamMemberDetails, HeadLineDetailView, \
-    AnnualReportsDetailView, NetworkPartnerDetailView, DonateSupportTemplateView, ContactUsTemplateView, \
-    ProductionEventListView
+    AnnualReportsDetailView, NetworkPartnerDetailView, DonateSupportTemplateView, ContactUsTemplateView
 
 app_name = 'main'
 
@@ -26,7 +25,6 @@ urlpatterns = [
     path('category/<str:slug>', ProductionListView.as_view(), name='sub_category_details'),
     path('category/', ProductionListView.as_view(), name='sub_category_details'),
     path('production/<str:slug>', ProductionDetails.as_view(), name='production_details'),
-    path('events/<str:slug>', ProductionEventListView.as_view(), name='production_program'),
     path('team', TeamList.as_view(), name='team'),
     path('team/<str:slug>', TeamMemberDetails.as_view(), name='team_member'),
     path('headline/<str:slug>', HeadLineDetailView.as_view(), name='headline'),

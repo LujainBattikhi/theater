@@ -8,8 +8,7 @@ from django.views.generic import TemplateView, FormView, ListView
 from django.views.generic.detail import DetailView
 
 from main.forms import MessageForm
-from main.models import Production, TeamMember, HeadLine, AnnualReport, NetworkPartner, SubCategory, ProductionImage, \
-    ProductionEvent
+from main.models import Production, TeamMember, HeadLine, AnnualReport, NetworkPartner, SubCategory, ProductionImage
 from main.utils import send_email
 
 
@@ -66,33 +65,14 @@ class ProductionDetails(DetailView):
         context = super(ProductionDetails, self).get_context_data(**kwargs)
         context['gallery'] = self.object.images.filter(type=ProductionImage.TYPE_GALLERY)
         context['news'] = self.object.images.filter(type=ProductionImage.TYPE_NEWS)
-        return context
-
-
-class ProductionEventListView(ListView):
-    template_name = 'main/production_event.html'
-    model = ProductionEvent
-
-    def dispatch(self, request, *args, **kwargs):
-        slug = self.kwargs.get('slug', None)
-        object_list = super().get_queryset()
-        self.available_dates = object_list.values_list('date', flat=True).distinct()
-        self.date = self.request.GET.get('date', None) or self.available_dates.first()
-        self.object_list = object_list.filter(production__slug=slug, date=self.date).distinct()
-        if not self.object_list:
-            return redirect(reverse('main:main'))
-        return super().dispatch(request, *args, **kwargs)
-
-    def get_queryset(self):
-        return self.object_list
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super(ProductionEventListView, self).get_context_data(**kwargs)
-        context['production'] = self.object_list.first().production
-        context['available_dates'] = self.available_dates
-        context['active_date'] = self.date
-        context['hide_coming_soon'] = True
-        context['show_languages'] = True
+        context['hide_coming_soon_page'] = True
+        events = self.object.events.all()
+        available_dates = events.values_list('date', flat=True).distinct()
+        date = self.request.GET.get('date', None) or available_dates.first()
+        production_events = events.filter(date=date).distinct()
+        context['production_events'] = production_events
+        context['available_dates'] = available_dates
+        context['active_date'] = date
         return context
 
 
