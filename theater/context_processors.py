@@ -17,6 +17,6 @@ def get_navbar_details(request):
         'categories': categories,
         'headlines': head_lines,
         'host': settings.HOST,
-        'coming_soon': True,
+        'activate_coming_soon': settings.ACTIVATE_COMING_SOON,
         'available_languages': settings.MULTILINGUAL_LANGUAGES
     }

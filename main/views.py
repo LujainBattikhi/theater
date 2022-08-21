@@ -65,8 +65,7 @@ class ProductionDetails(DetailView):
         context = super(ProductionDetails, self).get_context_data(**kwargs)
         context['gallery'] = self.object.images.filter(type=ProductionImage.TYPE_GALLERY)
         context['news'] = self.object.images.filter(type=ProductionImage.TYPE_NEWS)
-        context['hide_coming_soon'] = True
-        context['show_languages'] = True
+        context['hide_coming_soon_page'] = True
         events = self.object.events.all()
         available_dates = events.values_list('date', flat=True).distinct()
         date = self.request.GET.get('date', None) or available_dates.first()
